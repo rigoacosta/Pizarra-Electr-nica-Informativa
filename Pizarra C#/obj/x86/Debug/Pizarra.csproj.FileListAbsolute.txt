@@ -1,0 +1,7 @@
+C:\Users\Rigo\Desktop\Pizarra\obj\x86\Debug\Pizarra.csprojResolveAssemblyReference.cache
+C:\Users\Rigo\Desktop\Pizarra\obj\x86\Debug\Pizarra.MainForm.resources
+C:\Users\Rigo\Desktop\Pizarra\obj\x86\Debug\Pizarra.csproj.GenerateResource.Cache
+C:\Users\Rigo\Desktop\Pizarra\bin\Debug\Pizarra.exe
+C:\Users\Rigo\Desktop\Pizarra\bin\Debug\Pizarra.pdb
+C:\Users\Rigo\Desktop\Pizarra\obj\x86\Debug\Pizarra.exe
+C:\Users\Rigo\Desktop\Pizarra\obj\x86\Debug\Pizarra.pdb
