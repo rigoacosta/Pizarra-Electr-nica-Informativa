@@ -1,0 +1,382 @@
+MACRO ASSEMBLER L51_BANK                                   04/09/17 00:16:38 PAGE     1
+
+
+DOS MACRO ASSEMBLER MA51 V06.08.10.309
+OBJECT MODULE PLACED IN F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\L51_BANK.OBJ
+ASSEMBLER INVOKED BY: QUIET GENERATEDEPFILE EP SYNTAX(ASM51) PR XR PL(60) PW(80) DB OJ(F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\L51_BANK.OBJ) PIN(C:\RAISONANCE\RIDE\INC;C:\RAISONANCE\RIDE\INC\51) 
+
+LOC     OBJ           LINE    SOURCE
+                         1     ;=============================================================================
+                         2     ; File:  L51_BANK.A51
+                         3     ; Date:  Sep 1994
+                         4     ;   By:  FL
+                         5     ; Modif:  20.01.96 - SWB
+                         6     ;         15.07.03 - FL
+                         7     ;=============================================================================
+                         8     ; This module is used by LX51 to execute CODE bank switches, and comes in two 
+                         9     ; parts.  The first part is the common bridge to user's routines located in
+                        10     ; extended (banked) address areas. This section may be altered to suit your 
+                        11     ; particular hardware needs.
+                        12     ;
+                        13     ; NOTE:  Only the macro named SWITCH_BANK is to be modified by the user!
+                        14     ;-----------------------------------------------------------------------------
+                        15     ;                  * * * Important * * *
+                        16     ; The bank switching mechanism can be used in two modes:
+                        17     ;    * The "standard mode" for bank switching uses the external stack 
+                        18     ;      of the COMPACT and LARGE models to store the 3 additional 
+                        19     ;      bytes needed for each inter-bank call.
+                        20     ;    * The PL/M mode pushes those 3 bytes on the internal stack
+                        21     ;
+                        22     ; Although the PL/M mode provides a faster bank switch time, most 
+                        23     ; applications running in banked mode are short of internal RAM. 
+                        24     ; Consequently the use of the standard mode is usually the best
+                        25     ; solution and is assumed in this module.
+                        26     ;
+                        27     ; To use the PL/M mode:
+                        28     ;    * "PLM" has to be defined (using the set/equ commands), or in the 
+                        29     ;      command line when assembling this file.  For example:
+                        30     ;           MA51  L51_BANK.A51 SET(PLM)
+                        31     ;    * Then "XOPT(PLM)" has to be in the command line when invoking
+                        32     ;      LX51.  For example:
+                        33     ;           LX51  func1.obj, func2.obj,... XOPT(PLM) ...
+                        34     ;
+                        35     ;=============================================================================
+                        36     ; NOTE :
+                        37     ;   if you do not use the PL/M mode and there is in your project some functions
+                        38     ; that have two generic pointers as first parameters, those parameters will be
+                        39     ; passed in R1-R2-R3 for the first one and R0-R4-R5 for the second one. Then if
+                        40     ; at least one call of those functions needs a bank switch, you have to
+                        41     ; uncomment the following line:
+                        42     ;               $SET(TWO_PARAMS_SIZE_3_INREG=1)
+                        43     ;   This will change the bank switching procedure to save R0 register.
+                        44     ;=============================================================================
+                        45     $NODB
+                        46     $NOLINES
+                        47     $MOD51
+                        48     NAME ?BANK?SWITCHING
+                        49     
+                        50     ;=============================================================================
+MACRO ASSEMBLER L51_BANK                         04/09/17  00:16:38 PAGE     2
+                     
+                        51     ; NOTE:  DO NOT change the name of these two segments.  They are required by
+                        52     ; the L51 bank mode management facility.
+                        53     ;-----------------------------------------------------------------------------
+                        54     
+                        55     ?BANK?SWITCH		SEGMENT 	CODE
+                        56     ?DT?BANK?SWITCH 	SEGMENT		DATA
+                        57     
+                        58     ;-----------------------------------------------------------------------------
+                        59     
+                        60     EXTRN 		DATA(SPX)	;external stack pointer
+                        61     
+                        62     ;-----------------------------------------------------------------------------
+                        63     ;
+                        64     ; The following two public declarations are not required, but are useful
+                        65     ; for the simulator/debugger.
+                        66     ;
+                        67     ;-----------------------------------------------------------------------------
+                        68     PUBLIC		__SWITCH__0
+                        69     PUBLIC  		__SWITCH__1
+                        70     PUBLIC		?B_CURRENTBANK
+                        71     
+                        72     
+                        73     ;-----------------------------------------------------------------------------
+                        74     
+                        75     
+                        76     ;=============================================================================
+                        77     ;
+                        78     ; This is the switching-macro.  This is normally the only place where 
+                        79     ; changes need to be made to permit adaptation to the switch logic of 
+                        80     ; the target system.
+                        81     ;
+                        82     ;-----------------------------------------------------------------------------
+                        83     	SWITCH_BANK	MACRO
+                        84     $INCLUDE  (BNK_SWTC.MAC)
+                        91     	ENDM
+                        92     ;-----------------------------------------------------------------------------
+                        93     ;
+                        94     ;
+                        95     ;=============================================================================
+                        96     ;
+                        97     ;
+                        98     ;=============================================================================
+                        99     
+------                 100     RSEG ?DT?BANK?SWITCH
+0000                   101     	?B_CURRENTBANK: 	DS	 1
+                       102     
+                       103     ;=============================================================================
+------                 104     RSEG ?BANK?SWITCH
+                       105     
+                       106     	XCALL: 		; common code to switch to destination bank.
+                       107     $IF (PLM)
+                               		;=======================================================================
+                               		; -------------------------- PLM mode ----------------------------------
+                               		;=======================================================================
+                               		; The RETURN address is pushed onto the hardware (internal) stack
+                               		; Historically, this mode is called "PLM" because it has been developed
+                               		; in 1989 for some programmers using the PLM programming language.  
+MACRO ASSEMBLER L51_BANK                         04/09/17  00:16:38 PAGE     3
+                     
+                               		; It can be used with RC51 while the parameters of the destination 
+                               		; function are NOT PUSHED! Indeed, this mode allows faster switches, but 
+                               		; it modifies the stack frame.  
+                               		; Note that the RC51 "printf" function cannot be called in PLM mode.  
+                               		;=======================================================================
+                               			; Save the current bank ID to restore it after returning from dest
+                               			PUSH	?B_CURRENTBANK
+                               			XCH   A,B
+                               			MOV	?B_CURRENTBANK,A	
+                               			; Change the return address for RET_ADDR
+                               			MOV	A,#LOW(RET_ADDR)
+                               			PUSH	ACC
+                               			MOV	A,#HIGH(RET_ADDR)
+                               			PUSH	ACC
+                               			; Prepare the indirect JUMP (push lowPC, push HighPC, RET)
+                               			PUSH	DPL
+                               			PUSH	DPH
+                               			;**************************************
+                               			SWITCH_BANK		; switch to the new bank
+                               			;**************************************
+                               			MOV   A,B		; original ACC content is restored. 
+                               $ELSE
+                       136     		;=======================================================================
+                       137     		; -------------------------- Standard mode -----------------------------
+                       138     		;=======================================================================
+                       139     		; The RETURN address is pushed onto the EXTERNAL stack. This mode keeps 
+                       140     		; the integrity of the stack frame. However, it makes the switch slower. 
+                       141     		;=======================================================================
+                       142     		$IF (TWO_PARAMS_SIZE_3_INREG)
+                               				;-----------------------------------------------------------------
+                               				; A very special case occurs when at least one destination function
+                               				; has two 3-byte parameters in register (e.g. R1R2R3 and R0R4R5).
+                               				; In such a situation, R0 must be saved temporarily in the external
+                               				; stack.
+                               				;-----------------------------------------------------------------
+                               								; prepare the external stack to receive 4 bytes:
+                               								; return address (2 bytes), current bank (1 byte)
+                               								; and temporarily R0
+                                                       INC     SPX
+                                                       INC     SPX
+                                                       INC     SPX
+                                                       INC     SPX
+                                                       MOV     A, SPX
+                                                       XCH     A, R0
+                                                       MOVX    @R0, A
+                                                       DEC     R0
+                                                       DEC     R0
+                                                       DEC     R0
+                                                       ; Move the return address onto the external stack
+                                                       POP     ACC
+                                                       MOVX    @R0, A
+                                                       INC     R0
+                                                       ; Move the return address onto the external stack
+                                                       POP     ACC
+                                                       MOVX    @R0,A
+                                                       MOV     A,?B_CURRENTBANK
+                                                       INC     R0
+MACRO ASSEMBLER L51_BANK                         04/09/17  00:16:38 PAGE     4
+                     
+                                                       ; Save the current bank onto the external stack
+                                                       MOVX    @R0,A
+                                                       MOV     ?B_CURRENTBANK,B
+                               
+                               								; Change the return address for RET_ADDR
+                                                       MOV     A,#LOW(RET_ADDR)
+                                                       PUSH    ACC
+                                                       MOV     A,#HIGH(RET_ADDR)
+                                                       PUSH    ACC
+                               								; Prepare the indirect JUMP (push lowPC, push HighPC, RET)
+                               								PUSH	DPL
+                               								PUSH	DPH
+                               								;**************************************
+                               								SWITCH_BANK		; switch to the new bank
+                               								;**************************************	
+                                                       INC     R0
+                                                       MOVX    A, @R0
+                                                       ; restore R0 (possible parameter for dest)
+                                                       MOV     R0, A
+                                                       DEC     SPX
+                               		; ===================================================================
+                               		$ELSE 	;Standard case using external stack
+                       193     		; ===================================================================
+0000    0500     F     194     								INC	SPX
+0002    A800     F     195     								MOV	R0,SPX
+                       196                             ; Move the return address onto the external stack
+0004    D0E0           197                             POP     ACC
+0006    F2             198     								MOVX 	@R0,A			
+0007    08             199     								INC	R0
+0008    0500     F     200     								INC	SPX
+                       201                             ; Move the return address onto the external stack
+000A    D0E0           202     								POP	ACC
+000C    F2             203     								MOVX 	@R0,A
+                       204                             ; Save the current bank onto the external stack
+000D    E500     F     205     								MOV	A,?B_CURRENTBANK
+000F    08             206     								INC	R0
+0010    0500     F     207     								INC	SPX
+0012    F2             208     								MOVX 	@R0,A
+                       209     								; Set the NEW current bank
+0013    85F000   F     210     								MOV	?B_CURRENTBANK,B
+                       211     								; Change the return address for RET_ADDR
+0016    7400     F     212     								MOV	A,#LOW(RET_ADDR)
+0018    C0E0           213     								PUSH	ACC
+001A    7400     F     214     								MOV	A,#HIGH(RET_ADDR)
+001C    C0E0           215     								PUSH	ACC
+                       216     								; Prepare the indirect JUMP (push lowPC, push HighPC, RET)
+001E    C082           217     								PUSH	DPL
+0020    C083           218     								PUSH	DPH
+                       219     								;**************************************
+                       220     								SWITCH_BANK		; switch to the new bank
+                       220+1    ;NOTE - DO NOT EDIT THIS BLOCK OF CODE!
+                       220+1    ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+0022    E500     F     220+1   MOV A , ?B_CURRENTBANK 
+0024    5390F8         220+1   ANL P1 , # 0F8H 
+0027    4290           220+1   ORL P1 , A 
+                       220+1    ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                       220+1   
+MACRO ASSEMBLER L51_BANK                         04/09/17  00:16:38 PAGE     5
+                     
+                       221     								;**************************************	
+                       222     		$ENDIF
+                       223     $ENDIF			
+                       224     		; ===================================================================
+                       225     		__SWITCH__0: 		;INDIRECT JUMP to the DESTINATION
+0029    22             226     						RET	
+                       227     		; ===================================================================
+                       228     	RET_ADDR: 		
+                       229     		; we return HERE from the destination
+                       230     		; We have to restore the original (source) bank before returning to
+                       231     		; the original return address
+                       232     		; ===================================================================
+                       233     $IF (PLM)
+                               		; simply pop the source bank. 
+                               		; Return address is already on the internal stack
+                               			POP	?B_CURRENTBANK	; old bank is restored
+                               		; ===================================================================
+                               $ELSE	; Move from the external stack bothe the current bank and the address.
+                       239     		; ===================================================================
+002A    A800     F     240     			MOV	R0,SPX
+002C    E2             241     			MOVX	A,@R0		; old bank is restored
+002D    F500     F     242     			MOV	?B_CURRENTBANK,A
+002F    18             243     			DEC	R0
+0030    E2             244     			MOVX	A,@R0
+0031    C0E0           245     			PUSH	ACC
+0033    18             246     			DEC	R0
+0034    E2             247     			MOVX	A,@R0
+0035    C0E0           248     			PUSH	ACC
+0037    18             249     			DEC	R0
+0038    8800     F     250     			MOV	SPX,R0		
+                       251     $ENDIF
+                       252     			;**************************************	
+                       253     			SWITCH_BANK		; restore old area
+                       253+1    ;NOTE - DO NOT EDIT THIS BLOCK OF CODE!
+                       253+1    ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+003A    E500     F     253+1   MOV A , ?B_CURRENTBANK 
+003C    5390F8         253+1   ANL P1 , # 0F8H 
+003F    4290           253+1   ORL P1 , A 
+                       253+1    ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                       253+1   
+                       254     			;**************************************
+0041    22             255     	__SWITCH__1 : 	RET
+                       256     		
+                       257     ;=============================================================================
+                       258     ;*;
+                       259     ;*; The following section is put here for reference and to satisfy the 
+                       260     ;*; curiosity of those who feel the need to "know".  The section below 
+                       261     ;*; describes the code generated by L51 for each bank ( XBANK# ) area 
+                       262     ;*; declared, and one FCTk$i for each public declaration in that area.
+                       263     ;*;
+                       264     ;=============================================================================
+                       265     ;*;     ;Bank 1		----------------
+                       266     ;*;     XBANK1 :        mov     B,#1            ;HC980702 no modification for PL/M ; Note: use MOV R0,#1 ; if PL/M
+                       267     ;*;			ajmp	XCALL
+                       268     ;*;			
+                       269     ;*;	FCT1$1:		mov	DPTR,#PROG1$1
+                       270     ;*;			ajmp 	XBANK1
+MACRO ASSEMBLER L51_BANK                         04/09/17  00:16:38 PAGE     6
+                     
+                       271     ;*;
+                       272     ;*;	FCT1$2:		mov	DPTR,#PROG1$2
+                       273     ;*;			ajmp 	XBANK1
+                       274     ;*;     .....
+                       275     ;*;
+                       276     ;*;     ;Bank 2		----------------
+                       277     ;*;     XBANK2 :        mov     B,#2            ;HC980702 no modification for PL/M ; Note: use MOV R0,#2 ; if PL/M
+                       278     ;*;			ajmp	XCALL
+                       279     ;*;			
+                       280     ;*;	FCT2$1:		mov	DPTR,#PROG2$1
+                       281     ;*;			ajmp 	XBANK2
+                       282     ;*;	......
+                       283     ;=============================================================================
+                       284     ;************************ Configuration Section *******************************
+                       285     ; If your debugger does not support the ".LIS" script file that describes the *
+                       286     ; list of the banks, you should fill the following section. If you are using  *
+                       287     ; the Raisonance RIDE debugger, you do not need to fill this section.         *
+                       288     ;******************************************************************************
+  0008                 289     ?B_NBANKS       EQU     8        ; Define max. Number of Banks (8-16-32)      *
+  0000                 290     ?B_MODE         EQU     0        ; 0 for Bank-Switching via 8051 Port         *
+  0090                 291     ?B_CURB         EQU     P1       ; where is defined the current bank          *
+  0007                 292     ?B_MASK         EQU     7        ; define the significant bits                *
+  0090                 293     ?B_PORT         EQU     P1       ; default is P1                              *
+  0000                 294     ?B_FIRSTBIT     EQU     0        ; for ex. if P1.2 is the first signific. bit *
+  0000                 295     ?B_XDATAPORT    EQU     00H      ; default is XDATA Port Address 0FFFFH       *
+  0000                 296     ?BANKSTART      EQU     0000H    ; where the banks start (default 00)         *
+  FFFF                 297     ?BANKEND        EQU     0FFFFH   ; where the banks end  (default 0ffffh)      *
+                       298     ;******************************************************************************
+                       299     PUBLIC  ?B_NBANKS, ?B_MODE, ?B_MASK , ?B_XDATAPORT 
+                       300     PUBLIC  ?BANKSTART, ?BANKEND, ?B_CURB, ?B_FIRSTBIT, ?B_PORT
+                       301     ;******************************************************************************
+                       302     
+                       303     
+                       304     END
+MACRO ASSEMBLER L51_BANK                                   04/09/17 00:16:38 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+DPL. . . . . . . .  D ADDR   0082H   A                          47# 217 
+P1 . . . . . . . .  D ADDR   0090H   A                          47# 220 253 291 293 
+                                                                
+B. . . . . . . . .  D ADDR   00F0H   A                          47# 210 
+?DT?BANK?SWITCH. .  D SEG    0001H      REL=UNIT                100# 
+?B_PORT. . . . . .  N NUMB   0090h                              293# 300 
+?B_MODE. . . . . .  N NUMB   0000h                              290# 299 
+RET_ADDR . . . . .  C ADDR   002AH   R  SEG=?BANK?SWITCH        212 214 228# 304 
+                                                                
+?B_FIRSTBIT. . . .  N NUMB   0000h                              294# 300 
+ACC. . . . . . . .  D ADDR   00E0H   A                          47# 197 202 213 215 
+                                                                245 248 
+?BANKSTART . . . .  N NUMB   0000h                              296# 300 
+?B_MASK. . . . . .  N NUMB   0007h                              292# 299 
+?B_CURB. . . . . .  N NUMB   0090h                              291# 300 
+?BANK?SWITCH . . .  C SEG    0042H      REL=UNIT                104# 
+?BANKEND . . . . .  N NUMB   FFFFh                              297# 300 
+XCALL. . . . . . .  C ADDR   0000H   R  SEG=?BANK?SWITCH        106# 
+?B_XDATAPORT . . .  N NUMB   0000h                              295# 299 
+SPX. . . . . . . .  D ADDR   -----      EXT                     60# 194 195 200 207 
+                                                                240 250 
+DPH. . . . . . . .  D ADDR   0083H   A                          47# 218 
+?B_NBANKS. . . . .  N NUMB   0008h                              289# 299 
+__SWITCH__0. . . .  C ADDR   0029H   R  SEG=?BANK?SWITCH        68 225# 
+?B_CURRENTBANK . .  D ADDR   0000H   R  SEG=?DT?BANK?SWITCH     70 101# 205 210 220 
+                                                                242 253 
+__SWITCH__1. . . .  C ADDR   0041H   R  SEG=?BANK?SWITCH        69 255# 
+?BANK?SWITCHING. .  N NUMB   -----
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     66    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

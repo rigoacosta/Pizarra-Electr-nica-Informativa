@@ -1,0 +1,117 @@
+MACRO ASSEMBLER SOFTUART                                   06/03/17 22:56:34 PAGE     1
+
+
+DOS MACRO ASSEMBLER MA51 V06.08.10.309
+OBJECT MODULE PLACED IN F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\SOFTUART.OBJ
+ASSEMBLER INVOKED BY: QUIET GENERATEDEPFILE EP SYNTAX(ASM51) PR XR PL(60) PW(80) DB OJ(F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\SOFTUART.OBJ) PIN(C:\RAISONANCE\RIDE\INC;C:\RAISONANCE\RIDE\INC\51) 
+
+LOC     OBJ           LINE    SOURCE
+                         1         $MOD51
+                         2         ?SU?PUTC SEGMENT CODE
+                         3         ?SU?GETC SEGMENT CODE
+                         4          
+                         5         PUBLIC _PUTC
+                         6         PUBLIC GETC
+                         7         
+                         8         ;****************************
+                         9         ;*Declaracion de los puertos*
+                        10         ;****************************
+  0086                  11         PIN_TX	EQU	P0.6		;PIN TX
+  00B3                  12         PIN_RX	EQU	P3.3		;PIN RX
+                        13         
+                        14         
+                        15         ;baudrate = (((11059200/val)/12) - 5) / 2; //Formula para calcular el baudrate
+                        16     
+  002D                  17         BAUDRATE EQU 45   ;9600 bauds
+                        18     
+                        19         ;Se utiliza el registro 7 para colocar la informacion tanto para transmision como recepcion 
+                        20         ;Para transmitir por puerto
+                        21     
+------                  22          RSEG ?SU?PUTC
+                        23         _PUTC: 
+0000    C0E0            24         	PUSH ACC
+0002    C0D0            25         	PUSH PSW
+0004    EF              26         	MOV A,R7               
+0005    C286            27     CLR 134 
+0007    782D            28     MOV R0 , # 45 
+0009    D8FE            29         	DJNZ R0,$			;Esperar hasta q termine el tiempo de bit
+000B    7908            30         	MOV R1,#8			;Contador para 8 bits
+                        31         PUTC1: 
+000D    13              32         	RRC A				;Mover el bit a transmitir al ACC
+000E    9286            33     MOV 134 , C 
+0010    782D            34     MOV R0 , # 45 
+0012    D8FE            35         	DJNZ R0,$			;Esperar hasta q termine el bit
+0014    D9F7            36         	DJNZ R1,PUTC1		;Ciclo para envio de 8 bits
+0016    D286            37     SETB 134 
+0018    13              38         	RRC A				;Limpiar el acumulador
+0019    782D            39     MOV R0 , # 45 
+001B    D8FE            40         	DJNZ R0,$			;Esperar hasta q termine el tiempo de bit
+001D    D0D0            41             POP PSW
+001F    D0E0            42         	POP ACC
+0021    22              43         	RET
+                        44          
+                        45         ;Para recibir por puerto 
+------                  46         RSEG ?SU?GETC
+                        47         GETC: 
+0000    C2AA            48             CLR EX1   
+0002    C0E0            49             PUSH ACC
+0004    C0D0            50             PUSH PSW
+MACRO ASSEMBLER SOFTUART                         06/03/17  22:56:34 PAGE     2
+                     
+0006    20B313          51     JB 179 , FIN 
+0009    7816            52     MOV R0 , # 45 / 2 
+000B    D8FE            53             DJNZ R0,$               ;Esperar la mitad del tiempo de bit
+000D    20B3F0          54     JB 179 , GETC 
+0010    7908            55             MOV R1,#8               ;Contador para 8 bits
+                        56         GETC1: 
+0012    782D            57     MOV R0 , # 45 
+0014    D8FE            58             DJNZ R0,$               ;Esperar hasta q termine el tiempo de bit
+0016    A2B3            59     MOV C , 179 
+0018    13              60             RRC A                   ;Rotar con ACC para conformar el byte de TX
+0019    D9F7            61             DJNZ R1,GETC1           ;Contador para 8 bits
+001B    FF              62             MOV R7,A
+001C    D0D0            63     FIN:     POP PSW
+001E    D0E0            64             POP ACC
+0020    D2AA            65             SETB EX1
+0022    22              66             RET 					
+                        67     END
+MACRO ASSEMBLER SOFTUART                                   06/03/17 22:56:34 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+P0 . . . . . . . .  D ADDR   0080H   A                          1# 11 
+?SU?PUTC . . . . .  C SEG    0022H      REL=UNIT                22# 
+GETC . . . . . . .  C ADDR   0000H   R  SEG=?SU?GETC            6 47# 54 
+P3 . . . . . . . .  D ADDR   00B0H   A                          1# 12 
+ACC. . . . . . . .  D ADDR   00E0H   A                          1# 24 42 49 64 
+BAUDRATE . . . . .  N NUMB   002Dh                              17# 28 34 39 52 57 
+                                                                
+?SU?GETC . . . . .  C SEG    0023H      REL=UNIT                46# 
+PUTC1. . . . . . .  C ADDR   000DH   R  SEG=?SU?PUTC            31# 36 
+EX1. . . . . . . .  B ADDR   00A8H.2 A                          1# 48 65 
+PIN_RX . . . . . .  B ADDR   00B0H.3 A                          12# 51 54 59 
+PIN_TX . . . . . .  B ADDR   0080H.6 A                          11# 27 33 37 
+GETC1. . . . . . .  C ADDR   0012H   R  SEG=?SU?GETC            56# 61 
+PSW. . . . . . . .  D ADDR   00D0H   A                          1# 25 41 50 63 
+_PUTC. . . . . . .  C ADDR   0000H   R  SEG=?SU?PUTC            5 23# 
+FIN. . . . . . . .  C ADDR   001CH   R  SEG=?SU?GETC            51 63# 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     69    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

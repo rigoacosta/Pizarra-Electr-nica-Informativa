@@ -1,0 +1,1452 @@
+LX51 CODE BANKING LINKER/LOCATOR V05.08.10.309                                 06/19/17  16:12:50
+MS-DOS LX51 CODE BANKING LINKER/LOCATOR V05.08.10.309,  INVOKED BY:
+C:\Raisonance\Ride\Bin\LX51.EXE F:\Universidad\Proyecto\Pa Tesis\integrado\program.obj TO(F:\Univ&
+ersidad\Proyecto\Pa Tesis\integrado\proyecto.aof) LIBPATH(C:\Raisonance\Ride\Lib\51) GENERATEDEPF&
+ILE MAP IX RS(256) RSI(256) CSIZE(65536) XSIZE(65536) DEFN(XSTACKLEN,256) DEFN(TIM1_INIT,E8h) CO(&
+0) DT(0) ID(0) XD(0) BI(0) ABSCODEOFFS(0) XMLM(No,F:\Universidad\Proyecto\Pa Tesis\integrado\proy&
+ecto-modules.Standard.xml) XMLF(No,8000,F:\Universidad\Proyecto\Pa Tesis\integrado\proyecto-flash&
+.Standard.xml) XML(F:\Universidad\Proyecto\Pa Tesis\integrado\proyecto.Standard.xml) XMLRIDE(F:\U&
+niversidad\Proyecto\Pa Tesis\integrado\proyecto-globals.Standard.xml) 
+
+
+MEMORY MODEL: SMALL WITH IEEE STANDARD FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED
+  F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\PROGRAM.OBJ(PROGRAM)
+  C:\Raisonance\Ride\Lib\51\RC51FPS.LIB(MULTIEEE)
+  C:\Raisonance\Ride\Lib\51\RC51FPS.LIB(TOOLIEEE)
+  C:\Raisonance\Ride\Lib\51\RC51FPS.LIB(CONVIEEE)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(_C_CBAM)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(C1S)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(MV_XD2RG4)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(DIVS)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(HPD)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(_C_INITD)
+  C:\Raisonance\Ride\Lib\51\RC51S.LIB(_C_IDATALEN)
+
+
+LINK MAP OF MODULE: F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\PROYECTO.AOF (PROYECTO)
+
+    TYPE     BASE       LENGTH    RELOCATION     SEGMENT NAME
+    ----     ----       ------    ----------     ------------
+
+    * * * * * * *   DATA/IDATA    M E M O R Y   * * * * * * *
+    REG      0000H      0008H     ABSOLUTE       "REG BANK 0"
+    DATA     0008H      0008H     OVERLAID UNIT  _DGROUP02_
+             0008H      0001H     -------------  ?DT?_setTimbre?PROGRAM
+             0008H      0003H     -------------  ?DT?_setTemp?PROGRAM
+             0008H      0005H     -------------  ?DT?_setHora?PROGRAM
+             0008H      0005H     -------------  ?DT?_read_mcp3208?PROGRAM
+             000DH      0002H     -------------  ?DT?_Soft_SPI_Write?PROGRAM
+             000DH      0003H     -------------  ?DT?_Soft_SPI_Transfer?PROGRAM
+             000DH      0002H     -------------  ?DT?Soft_SPI_Read?PROGRAM
+             0008H      0002H     -------------  ?DT?rotarCartel?PROGRAM
+             0008H      0002H     -------------  ?DT?set_up_letter?PROGRAM
+    DATA     0010H      0004H     OVERLAID UNIT  _DGROUP03_
+             0010H      0001H     -------------  ?DT?SerialPortInt?PROGRAM
+             0011H      0003H     -------------  ?DT?execute?PROGRAM
+             0014H      000CH                    *** GAP ***
+    BIT      0020H.0    0000H.2   UNIT           ?BI?PROGRAM
+             0020H.2    0000H.6                  *** GAP ***
+    DATA     0021H      0048H     UNIT           ?DT?PROGRAM
+    IDATA    0069H      0078H     UNIT           ?ID?PROGRAM
+    IDATA    00E1H      0001H     * * STACK * *  _STACK
+
+    * * * * * * *   CODE          M E M O R Y   * * * * * * *
+    CODE     0000H      0003H     ABSOLUTE       
+    CODE     0003H      0007H     UNIT           ?PR?start?PROGRAM
+             000AH      0001H                    *** GAP ***
+    CODE     000BH      0003H     ABSOLUTE       
+    CODE     000EH      000CH     INBLOCK        ?PR?MOVES?LIB51
+    CODE     001AH      0009H     UNIT           ?PR?stop?PROGRAM
+    CODE     0023H      0003H     ABSOLUTE       
+    CODE     0026H      0066H     UNIT           ?PR?C51_STARTUP?
+    CODE     008CH      00D2H     UNIT           ?PR?LIB51
+    CODE     015EH      026CH     UNIT           ?PR?IEEE?LIB51
+    CODE     03CAH      002DH     UNIT           ?PR?_send_byte?PROGRAM
+    CODE     03F7H      0030H     UNIT           ?PR?_receive_byte?PROGRAM
+    CODE     0427H      0025H     UNIT           ?PR?_write_i2c?PROGRAM
+    CODE     044CH      0031H     UNIT           ?PR?_read_i2c?PROGRAM
+    CODE     047DH      0010H     UNIT           ?PR?_bcdToDec?PROGRAM
+    CODE     048DH      0012H     UNIT           ?PR?_decToBcd?PROGRAM
+    CODE     049FH      000CH     UNIT           ?PR?_DELAY_us?PROGRAM
+    CODE     04ABH      0017H     UNIT           ?PR?_DELAY_ms?PROGRAM
+    CODE     04C2H      0005H     UNIT           ?PR?_decToAscii?PROGRAM
+    CODE     04C7H      0009H     UNIT           ?PR?Soft_SPI_Init?PROGRAM
+    CODE     04D0H      0003H     UNIT           ?PR?CS_LOW?PROGRAM
+    CODE     04D3H      0003H     UNIT           ?PR?CS_HIGH?PROGRAM
+    CODE     04D6H      0025H     UNIT           ?PR?_Soft_SPI_Write?PROGRAM
+    CODE     04FBH      0021H     UNIT           ?PR?Soft_SPI_Read?PROGRAM
+    CODE     051CH      0034H     UNIT           ?PR?_Soft_SPI_Transfer?PROGRAM
+    CODE     0550H      0002H     UNIT           ?PR?delay_us?PROGRAM
+    CODE     0552H      0444H     UNIT           ?PR?PROGRAM
+    CODE     0996H      00DEH     UNIT           ?PR?main?PROGRAM
+    CODE     0A74H      0023H     UNIT           ?PR?serieInitHardware?PROGRAM
+    CODE     0A97H      0040H     UNIT           ?PR?getRTC?PROGRAM
+    CODE     0AD7H      0033H     UNIT           ?PR?setRTC?PROGRAM
+    CODE     0B0AH      0080H     UNIT           ?PR?SerialPortInt?PROGRAM
+    CODE     0B8AH      00A5H     UNIT           ?PR?execute?PROGRAM
+    CODE     0C2FH      00D6H     UNIT           ?PR?_read_mcp3208?PROGRAM
+    CODE     0D05H      0052H     UNIT           ?PR?intPWM?PROGRAM
+    CODE     0D57H      0021H     UNIT           ?PR?_rotar?PROGRAM
+    CODE     0D78H      001DH     UNIT           ?PR?clearDown?PROGRAM
+    CODE     0D95H      001DH     UNIT           ?PR?clearUp?PROGRAM
+    CODE     0DB2H      001EH     UNIT           ?PR?set_oe_la?PROGRAM
+    CODE     0DD0H      0024H     UNIT           ?PR?_get_bit?PROGRAM
+    CODE     0DF4H      0103H     UNIT           ?PR?set_up_letter?PROGRAM
+    CODE     0EF7H      0028H     UNIT           ?PR?setPuntos?PROGRAM
+    CODE     0F1FH      0057H     UNIT           ?PR?_setAMPM?PROGRAM
+    CODE     0F76H      03BFH     UNIT           ?PR?_setHora?PROGRAM
+    CODE     1335H      0132H     UNIT           ?PR?_setTemp?PROGRAM
+    CODE     1467H      003BH     UNIT           ?PR?_checkChar?PROGRAM
+    CODE     14A2H      0120H     UNIT           ?PR?rotarCartel?PROGRAM
+    CODE     15C2H      007BH     UNIT           ?PR?ctrlRotar?PROGRAM
+    CODE     163DH      003CH     UNIT           ?PR?ctrlBrillo?PROGRAM
+    CODE     1679H      0042H     UNIT           ?PR?fixGetRTC?PROGRAM
+    CODE     16BBH      004AH     UNIT           ?PR?fixSetRTC?PROGRAM
+    CODE     1705H      00B5H     UNIT           ?PR?_setTimbre?PROGRAM
+    CODE     17BAH      0032H     UNIT           _C_INITD?CD
+
+EXECUTABLE SUMMARY:
+-------------------
+    Total INTERNAL RAM storage requirement:  00D4H.2 (212.2)
+    Total EXTERNAL RAM storage requirement:  0000H (0)
+    Total     CODE     storage requirement:  17EBH (6123)
+Note:  Summary does not include dynamic stack requirements
+
+
+REFERENCE MAP OF MODULE: F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\PROYECTO.AOF (PROYECTO)
+
+SEGMENT                           BI_GROUP            DT_GROUP             ID_GROUP             XD_GROUP
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH     START    LENGTH     START    LENGTH
+--------------------------------------------------------------------------------------
+
+?PR?_write_i2c?PROGRAM         ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?start?PROGRAM
+  +--> ?PR?_send_byte?PROGRAM
+  +--> ?PR?stop?PROGRAM
+
+?PR?start?PROGRAM              ---------------     ---------------     ---------------     ---------------
+
+?PR?_send_byte?PROGRAM         ---------------     ---------------     ---------------     ---------------
+
+?PR?stop?PROGRAM               ---------------     ---------------     ---------------     ---------------
+
+?PR?_decToAscii?PROGRAM        ---------------     ---------------     ---------------     ---------------
+
+?PR?main?PROGRAM               ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?Soft_SPI_Init?PROGRAM
+  +--> ?PR?serieInitHardware?PROGRAM
+  +--> ?PR?clearDown?PROGRAM
+  +--> ?PR?clearUp?PROGRAM
+  +--> ?PR?getRTC?PROGRAM
+  +--> ?PR?fixGetRTC?PROGRAM
+  +--> ?PR?_setTimbre?PROGRAM
+  +--> ?PR?_setTemp?PROGRAM
+  +--> ?PR?_setAMPM?PROGRAM
+  +--> ?PR?_setHora?PROGRAM
+  +--> ?PR?setPuntos?PROGRAM
+  +--> ?PR?ctrlBrillo?PROGRAM
+  +--> ?PR?ctrlRotar?PROGRAM
+  +--> ?PR?rotarCartel?PROGRAM
+  +--> ?PR?set_up_letter?PROGRAM
+  +--> ?PR?_read_mcp3208?PROGRAM
+
+?PR?Soft_SPI_Init?PROGRAM      ---------------     ---------------     ---------------     ---------------
+
+?PR?serieInitHardware?PROGRAM  ---------------     ---------------     ---------------     ---------------
+
+?PR?clearDown?PROGRAM          ---------------     ---------------     ---------------     ---------------
+
+?PR?clearUp?PROGRAM            ---------------     ---------------     ---------------     ---------------
+
+?PR?getRTC?PROGRAM             ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_read_i2c?PROGRAM
+
+?PR?_read_i2c?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_receive_byte?PROGRAM
+  +--> ?PR?start?PROGRAM
+  +--> ?PR?_send_byte?PROGRAM
+  +--> ?PR?stop?PROGRAM
+
+?PR?_receive_byte?PROGRAM      ---------------     ---------------     ---------------     ---------------
+
+?PR?fixGetRTC?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_bcdToDec?PROGRAM
+
+?PR?_bcdToDec?PROGRAM          ---------------     ---------------     ---------------     ---------------
+
+?PR?_setTimbre?PROGRAM         ---------------     0008H    0001H     ---------------     ---------------
+
+?PR?_setTemp?PROGRAM           ---------------     0008H    0003H     ---------------     ---------------
+
+?PR?_setAMPM?PROGRAM           ---------------     ---------------     ---------------     ---------------
+
+?PR?_setHora?PROGRAM           ---------------     0008H    0005H     ---------------     ---------------
+  +--> ?PR?_rotar?PROGRAM
+
+?PR?_rotar?PROGRAM             ---------------     ---------------     ---------------     ---------------
+
+?PR?setPuntos?PROGRAM          ---------------     ---------------     ---------------     ---------------
+
+?PR?ctrlBrillo?PROGRAM         ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_read_mcp3208?PROGRAM
+
+?PR?_read_mcp3208?PROGRAM      ---------------     0008H    0005H     ---------------     ---------------
+  +--> ?PR?CS_LOW?PROGRAM
+  +--> ?PR?_Soft_SPI_Write?PROGRAM
+  +--> ?PR?_Soft_SPI_Transfer?PROGRAM
+  +--> ?PR?Soft_SPI_Read?PROGRAM
+  +--> ?PR?CS_HIGH?PROGRAM
+
+?PR?CS_LOW?PROGRAM             ---------------     ---------------     ---------------     ---------------
+
+?PR?_Soft_SPI_Write?PROGRAM    ---------------     000DH    0002H     ---------------     ---------------
+  +--> ?PR?delay_us?PROGRAM
+
+?PR?delay_us?PROGRAM           ---------------     ---------------     ---------------     ---------------
+
+?PR?_Soft_SPI_Transfer?PROGRAM ---------------     000DH    0003H     ---------------     ---------------
+  +--> ?PR?delay_us?PROGRAM
+
+?PR?Soft_SPI_Read?PROGRAM      ---------------     000DH    0002H     ---------------     ---------------
+  +--> ?PR?delay_us?PROGRAM
+
+?PR?CS_HIGH?PROGRAM            ---------------     ---------------     ---------------     ---------------
+
+?PR?ctrlRotar?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_checkChar?PROGRAM
+
+?PR?_checkChar?PROGRAM         ---------------     ---------------     ---------------     ---------------
+
+?PR?rotarCartel?PROGRAM        ---------------     0008H    0002H     ---------------     ---------------
+  +--> ?PR?_rotar?PROGRAM
+
+?PR?set_up_letter?PROGRAM      ---------------     0008H    0002H     ---------------     ---------------
+  +--> ?PR?_get_bit?PROGRAM
+  +--> ?PR?set_oe_la?PROGRAM
+  +--> ?PR?_DELAY_ms?PROGRAM
+
+?PR?_get_bit?PROGRAM           ---------------     ---------------     ---------------     ---------------
+
+?PR?set_oe_la?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_DELAY_ms?PROGRAM
+
+?PR?_DELAY_ms?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_DELAY_us?PROGRAM
+
+?PR?_DELAY_us?PROGRAM          ---------------     ---------------     ---------------     ---------------
+
+?PR?SerialPortInt?PROGRAM      ---------------     0010H    0001H      ---------------     ---------------
+  +--> ?PR?execute?PROGRAM
+
+?PR?execute?PROGRAM            ---------------     0011H    0003H     ---------------     ---------------
+  +--> ?PR?fixSetRTC?PROGRAM
+  +--> ?PR?setRTC?PROGRAM
+  +--> ?PR?clearDown?PROGRAM
+
+?PR?fixSetRTC?PROGRAM          ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?_decToBcd?PROGRAM
+
+?PR?_decToBcd?PROGRAM          ---------------     ---------------     ---------------     ---------------
+
+?PR?setRTC?PROGRAM             ---------------     ---------------     ---------------     ---------------
+  +--> ?PR?start?PROGRAM
+  +--> ?PR?_send_byte?PROGRAM
+  +--> ?PR?stop?PROGRAM
+
+?PR?intPWM?PROGRAM             ---------------     ---------------     ---------------     ---------------
+
+SYMBOL TABLE FOR F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\PROYECTO.AOF(PROGRAM)
+----------------------------------------------------------------------------------
+
+    VALUE              TYPE               NAME
+    -----              ----               ----
+
+	-------            MODULE             program
+	C:0000H            SYMBOL             _ICE_DUMMY_
+	C:0D05H            PUBLIC             intPWM
+	C:0B0AH            PUBLIC             SerialPortInt
+	D:0008H            PUBLIC             ?_setHora?BYTE
+	D:0008H            PUBLIC             ?_setTimbre?BYTE
+	C:0996H            PUBLIC             main
+	D:0061H            PUBLIC             datosReloj
+	C:091EH            PUBLIC             numeros
+	C:0552H            PUBLIC             cartelChar
+	D:005FH            PUBLIC             readMCP
+	D:005DH            PUBLIC             auxiliar
+	I:0069H            PUBLIC             pizarra
+	D:005BH            PUBLIC             rotChar
+	D:005AH            PUBLIC             finalChar
+	D:0059H            PUBLIC             l
+	D:0058H            PUBLIC             columnChar
+	D:0057H            PUBLIC             typeChar
+	D:0056H            PUBLIC             nextChar
+	B:0001H            PUBLIC             ctrlChar
+	D:0055H            PUBLIC             valorChar
+	D:0054H            PUBLIC             resto1
+	D:0053H            PUBLIC             resto0
+	D:0051H            PUBLIC             temp
+	D:0050H            PUBLIC             PWM
+	D:004FH            PUBLIC             centinela
+	D:004DH            PUBLIC             promedio
+	B:0000H            PUBLIC             mostrarTemp
+	D:004CH            PUBLIC             ctrlTemp
+	D:004AH            PUBLIC             temperatura
+	D:0022H            PUBLIC             entrada
+	C:1705H            PUBLIC             _setTimbre
+	C:15C2H            PUBLIC             ctrlRotar
+	C:14A2H            PUBLIC             rotarCartel
+	C:1467H            PUBLIC             _checkChar
+	C:1335H            PUBLIC             _setTemp
+	C:0F76H            PUBLIC             _setHora
+	C:0F1FH            PUBLIC             _setAMPM
+	C:0EF7H            PUBLIC             setPuntos
+	C:0DD0H            PUBLIC             _get_bit
+	C:0DF4H            PUBLIC             set_up_letter
+	C:0DB2H            PUBLIC             set_oe_la
+	C:0D78H            PUBLIC             clearDown
+	C:0D95H            PUBLIC             clearUp
+	C:0D57H            PUBLIC             _rotar
+	C:163DH            PUBLIC             ctrlBrillo
+	C:0C2FH            PUBLIC             _read_mcp3208
+	C:16BBH            PUBLIC             fixSetRTC
+	C:1679H            PUBLIC             fixGetRTC
+	C:0AD7H            PUBLIC             setRTC
+	C:0A97H            PUBLIC             getRTC
+	C:0B8AH            PUBLIC             execute
+	C:0A74H            PUBLIC             serieInitHardware
+	B:0087H            SYMBOL             timbre
+	B:00C8H            SYMBOL             CP_RL2
+	B:00C9H            SYMBOL             C_T2
+	B:00CAH            SYMBOL             TR2
+	B:00CBH            SYMBOL             EXEN2
+	B:00CCH            SYMBOL             TCLK
+	B:00CDH            SYMBOL             RCLK
+	B:00CEH            SYMBOL             EXF2
+	B:00CFH            SYMBOL             TF2
+	B:0090H            SYMBOL             T2
+	B:0091H            SYMBOL             T2EX
+	B:00BDH            SYMBOL             PT2
+	B:00ADH            SYMBOL             ET2
+	B:0098H            SYMBOL             RI
+	B:0099H            SYMBOL             TI
+	B:009AH            SYMBOL             RB8
+	B:009BH            SYMBOL             TB8
+	B:009CH            SYMBOL             REN
+	B:009DH            SYMBOL             SM2
+	B:009EH            SYMBOL             SM1
+	B:009FH            SYMBOL             SM0
+	B:00B0H            SYMBOL             RXD
+	B:00B1H            SYMBOL             TXD
+	B:00B2H            SYMBOL             INT0
+	B:00B3H            SYMBOL             INT1
+	B:00B4H            SYMBOL             T0
+	B:00B5H            SYMBOL             T1
+	B:00B6H            SYMBOL             WR
+	B:00B7H            SYMBOL             RD
+	B:00B8H            SYMBOL             PX0
+	B:00B9H            SYMBOL             PT0
+	B:00BAH            SYMBOL             PX1
+	B:00BBH            SYMBOL             PT1
+	B:00BCH            SYMBOL             PS
+	B:00A8H            SYMBOL             EX0
+	B:00A9H            SYMBOL             ET0
+	B:00AAH            SYMBOL             EX1
+	B:00ABH            SYMBOL             ET1
+	B:00ACH            SYMBOL             ES
+	B:00AFH            SYMBOL             EA
+	B:0088H            SYMBOL             IT0
+	B:0089H            SYMBOL             IE0
+	B:008AH            SYMBOL             IT1
+	B:008BH            SYMBOL             IE1
+	B:008CH            SYMBOL             TR0
+	B:008DH            SYMBOL             TF0
+	B:008EH            SYMBOL             TR1
+	B:008FH            SYMBOL             TF1
+	B:00D0H            SYMBOL             P
+	B:00D1H            SYMBOL             F1
+	B:00D2H            SYMBOL             OV
+	B:00D3H            SYMBOL             RS0
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:00D6H            SYMBOL             AC
+	B:00D7H            SYMBOL             CY
+	D:00CDH            SYMBOL             TH2
+	D:00CCH            SYMBOL             TL2
+	D:00CBH            SYMBOL             RCAP2H
+	D:00CAH            SYMBOL             RCAP2L
+	D:00C8H            SYMBOL             T2CON
+	D:0099H            SYMBOL             SBUF
+	D:0098H            SYMBOL             SCON
+	D:00B8H            SYMBOL             IP
+	D:00A8H            SYMBOL             IE
+	D:008DH            SYMBOL             TH1
+	D:008CH            SYMBOL             TH0
+	D:008BH            SYMBOL             TL1
+	D:008AH            SYMBOL             TL0
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	D:0087H            SYMBOL             PCON
+	D:0083H            SYMBOL             DPH
+	D:0082H            SYMBOL             DPL
+	D:0081H            SYMBOL             SP
+	D:00F0H            SYMBOL             B
+	D:00E0H            SYMBOL             ACC
+	D:00D0H            SYMBOL             PSW
+	C:0550H            PUBLIC             delay_us
+	C:04D3H            PUBLIC             CS_HIGH
+	C:04D0H            PUBLIC             CS_LOW
+	C:051CH            PUBLIC             _Soft_SPI_Transfer
+	C:04FBH            PUBLIC             Soft_SPI_Read
+	C:04D6H            PUBLIC             _Soft_SPI_Write
+	C:04C7H            PUBLIC             Soft_SPI_Init
+	B:0085H            SYMBOL             cs
+	B:0083H            SYMBOL             miso
+	B:0084H            SYMBOL             mosi
+	B:0082H            SYMBOL             clk
+	B:00C8H            SYMBOL             CP_RL2
+	B:00C9H            SYMBOL             C_T2
+	B:00CAH            SYMBOL             TR2
+	B:00CBH            SYMBOL             EXEN2
+	B:00CCH            SYMBOL             TCLK
+	B:00CDH            SYMBOL             RCLK
+	B:00CEH            SYMBOL             EXF2
+	B:00CFH            SYMBOL             TF2
+	B:0090H            SYMBOL             T2
+	B:0091H            SYMBOL             T2EX
+	B:00BDH            SYMBOL             PT2
+	B:00ADH            SYMBOL             ET2
+	B:0098H            SYMBOL             RI
+	B:0099H            SYMBOL             TI
+	B:009AH            SYMBOL             RB8
+	B:009BH            SYMBOL             TB8
+	B:009CH            SYMBOL             REN
+	B:009DH            SYMBOL             SM2
+	B:009EH            SYMBOL             SM1
+	B:009FH            SYMBOL             SM0
+	B:00B0H            SYMBOL             RXD
+	B:00B1H            SYMBOL             TXD
+	B:00B2H            SYMBOL             INT0
+	B:00B3H            SYMBOL             INT1
+	B:00B4H            SYMBOL             T0
+	B:00B5H            SYMBOL             T1
+	B:00B6H            SYMBOL             WR
+	B:00B7H            SYMBOL             RD
+	B:00B8H            SYMBOL             PX0
+	B:00B9H            SYMBOL             PT0
+	B:00BAH            SYMBOL             PX1
+	B:00BBH            SYMBOL             PT1
+	B:00BCH            SYMBOL             PS
+	B:00A8H            SYMBOL             EX0
+	B:00A9H            SYMBOL             ET0
+	B:00AAH            SYMBOL             EX1
+	B:00ABH            SYMBOL             ET1
+	B:00ACH            SYMBOL             ES
+	B:00AFH            SYMBOL             EA
+	B:0088H            SYMBOL             IT0
+	B:0089H            SYMBOL             IE0
+	B:008AH            SYMBOL             IT1
+	B:008BH            SYMBOL             IE1
+	B:008CH            SYMBOL             TR0
+	B:008DH            SYMBOL             TF0
+	B:008EH            SYMBOL             TR1
+	B:008FH            SYMBOL             TF1
+	B:00D0H            SYMBOL             P
+	B:00D1H            SYMBOL             F1
+	B:00D2H            SYMBOL             OV
+	B:00D3H            SYMBOL             RS0
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:00D6H            SYMBOL             AC
+	B:00D7H            SYMBOL             CY
+	D:00CDH            SYMBOL             TH2
+	D:00CCH            SYMBOL             TL2
+	D:00CBH            SYMBOL             RCAP2H
+	D:00CAH            SYMBOL             RCAP2L
+	D:00C8H            SYMBOL             T2CON
+	D:0099H            SYMBOL             SBUF
+	D:0098H            SYMBOL             SCON
+	D:00B8H            SYMBOL             IP
+	D:00A8H            SYMBOL             IE
+	D:008DH            SYMBOL             TH1
+	D:008CH            SYMBOL             TH0
+	D:008BH            SYMBOL             TL1
+	D:008AH            SYMBOL             TL0
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	D:0087H            SYMBOL             PCON
+	D:0083H            SYMBOL             DPH
+	D:0082H            SYMBOL             DPL
+	D:0081H            SYMBOL             SP
+	D:00F0H            SYMBOL             B
+	D:00E0H            SYMBOL             ACC
+	D:00D0H            SYMBOL             PSW
+	C:04C2H            PUBLIC             _decToAscii
+	C:049FH            PUBLIC             _DELAY_us
+	C:04ABH            PUBLIC             _DELAY_ms
+	C:048DH            PUBLIC             _decToBcd
+	C:047DH            PUBLIC             _bcdToDec
+	B:00B7H            SYMBOL             LED
+	B:00B6H            SYMBOL             oe
+	B:00B5H            SYMBOL             la
+	B:00B4H            SYMBOL             clkP
+	B:00B2H            SYMBOL             RS485
+	B:00A1H            SYMBOL             f10
+	B:00A0H            SYMBOL             f9
+	B:00A3H            SYMBOL             f8
+	B:00A2H            SYMBOL             f7
+	B:00A5H            SYMBOL             f6
+	B:00A4H            SYMBOL             f5
+	B:00A7H            SYMBOL             f4
+	B:00A6H            SYMBOL             f3
+	B:0091H            SYMBOL             f2
+	B:0090H            SYMBOL             f1
+	B:00C8H            SYMBOL             CP_RL2
+	B:00C9H            SYMBOL             C_T2
+	B:00CAH            SYMBOL             TR2
+	B:00CBH            SYMBOL             EXEN2
+	B:00CCH            SYMBOL             TCLK
+	B:00CDH            SYMBOL             RCLK
+	B:00CEH            SYMBOL             EXF2
+	B:00CFH            SYMBOL             TF2
+	B:0090H            SYMBOL             T2
+	B:0091H            SYMBOL             T2EX
+	B:00BDH            SYMBOL             PT2
+	B:00ADH            SYMBOL             ET2
+	B:0098H            SYMBOL             RI
+	B:0099H            SYMBOL             TI
+	B:009AH            SYMBOL             RB8
+	B:009BH            SYMBOL             TB8
+	B:009CH            SYMBOL             REN
+	B:009DH            SYMBOL             SM2
+	B:009EH            SYMBOL             SM1
+	B:009FH            SYMBOL             SM0
+	B:00B0H            SYMBOL             RXD
+	B:00B1H            SYMBOL             TXD
+	B:00B2H            SYMBOL             INT0
+	B:00B3H            SYMBOL             INT1
+	B:00B4H            SYMBOL             T0
+	B:00B5H            SYMBOL             T1
+	B:00B6H            SYMBOL             WR
+	B:00B7H            SYMBOL             RD
+	B:00B8H            SYMBOL             PX0
+	B:00B9H            SYMBOL             PT0
+	B:00BAH            SYMBOL             PX1
+	B:00BBH            SYMBOL             PT1
+	B:00BCH            SYMBOL             PS
+	B:00A8H            SYMBOL             EX0
+	B:00A9H            SYMBOL             ET0
+	B:00AAH            SYMBOL             EX1
+	B:00ABH            SYMBOL             ET1
+	B:00ACH            SYMBOL             ES
+	B:00AFH            SYMBOL             EA
+	B:0088H            SYMBOL             IT0
+	B:0089H            SYMBOL             IE0
+	B:008AH            SYMBOL             IT1
+	B:008BH            SYMBOL             IE1
+	B:008CH            SYMBOL             TR0
+	B:008DH            SYMBOL             TF0
+	B:008EH            SYMBOL             TR1
+	B:008FH            SYMBOL             TF1
+	B:00D0H            SYMBOL             P
+	B:00D1H            SYMBOL             F1
+	B:00D2H            SYMBOL             OV
+	B:00D3H            SYMBOL             RS0
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:00D6H            SYMBOL             AC
+	B:00D7H            SYMBOL             CY
+	D:00CDH            SYMBOL             TH2
+	D:00CCH            SYMBOL             TL2
+	D:00CBH            SYMBOL             RCAP2H
+	D:00CAH            SYMBOL             RCAP2L
+	D:00C8H            SYMBOL             T2CON
+	D:0099H            SYMBOL             SBUF
+	D:0098H            SYMBOL             SCON
+	D:00B8H            SYMBOL             IP
+	D:00A8H            SYMBOL             IE
+	D:008DH            SYMBOL             TH1
+	D:008CH            SYMBOL             TH0
+	D:008BH            SYMBOL             TL1
+	D:008AH            SYMBOL             TL0
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	D:0087H            SYMBOL             PCON
+	D:0083H            SYMBOL             DPH
+	D:0082H            SYMBOL             DPL
+	D:0081H            SYMBOL             SP
+	D:00F0H            SYMBOL             B
+	D:00E0H            SYMBOL             ACC
+	D:00D0H            SYMBOL             PSW
+	D:00B0H            SYMBOL             P3
+	D:00A0H            SYMBOL             P2
+	D:0090H            SYMBOL             P1
+	C:044CH            PUBLIC             _read_i2c
+	C:0427H            PUBLIC             _write_i2c
+	C:03F7H            PUBLIC             _receive_byte
+	C:03CAH            PUBLIC             _send_byte
+	C:001AH            PUBLIC             stop
+	C:0003H            PUBLIC             start
+	D:0021H            PUBLIC             slave_ack
+	B:0081H            SYMBOL             SDA
+	B:0080H            SYMBOL             SCL
+	B:0098H            SYMBOL             RI
+	B:0099H            SYMBOL             TI
+	B:009AH            SYMBOL             RB8
+	B:009BH            SYMBOL             TB8
+	B:009CH            SYMBOL             REN
+	B:009DH            SYMBOL             SM2
+	B:009EH            SYMBOL             SM1
+	B:009FH            SYMBOL             SM0
+	B:00B0H            SYMBOL             RXD
+	B:00B1H            SYMBOL             TXD
+	B:00B2H            SYMBOL             INT0
+	B:00B3H            SYMBOL             INT1
+	B:00B4H            SYMBOL             T0
+	B:00B5H            SYMBOL             T1
+	B:00B6H            SYMBOL             WR
+	B:00B7H            SYMBOL             RD
+	B:00B8H            SYMBOL             PX0
+	B:00B9H            SYMBOL             PT0
+	B:00BAH            SYMBOL             PX1
+	B:00BBH            SYMBOL             PT1
+	B:00BCH            SYMBOL             PS
+	B:00A8H            SYMBOL             EX0
+	B:00A9H            SYMBOL             ET0
+	B:00AAH            SYMBOL             EX1
+	B:00ABH            SYMBOL             ET1
+	B:00ACH            SYMBOL             ES
+	B:00AFH            SYMBOL             EA
+	B:0088H            SYMBOL             IT0
+	B:0089H            SYMBOL             IE0
+	B:008AH            SYMBOL             IT1
+	B:008BH            SYMBOL             IE1
+	B:008CH            SYMBOL             TR0
+	B:008DH            SYMBOL             TF0
+	B:008EH            SYMBOL             TR1
+	B:008FH            SYMBOL             TF1
+	B:00D0H            SYMBOL             P
+	B:00D2H            SYMBOL             OV
+	B:00D3H            SYMBOL             RS0
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:00D6H            SYMBOL             AC
+	B:00D7H            SYMBOL             CY
+	D:0099H            SYMBOL             SBUF
+	D:0098H            SYMBOL             SCON
+	D:00B8H            SYMBOL             IP
+	D:00A8H            SYMBOL             IE
+	D:008DH            SYMBOL             TH1
+	D:008CH            SYMBOL             TH0
+	D:008BH            SYMBOL             TL1
+	D:008AH            SYMBOL             TL0
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	D:0087H            SYMBOL             PCON
+	D:0083H            SYMBOL             DPH
+	D:0082H            SYMBOL             DPL
+	D:0081H            SYMBOL             SP
+	D:00F0H            SYMBOL             B
+	D:00E0H            SYMBOL             ACC
+	D:00D0H            SYMBOL             PSW
+	D:00B0H            SYMBOL             P3
+	D:00A0H            SYMBOL             P2
+	D:0090H            SYMBOL             P1
+	D:0080H            SYMBOL             P0
+	D:0081H            SYMBOL             __SP__
+	-------            PROC               start
+	C:0003H            LINE#              21
+	C:0003H            LINE#              21
+	C:0003H            LINE#              27
+	C:0005H            LINE#              28
+	C:0006H            LINE#              30
+	C:0008H            LINE#              31
+	C:0009H            LINE#              32
+	C:0009H            LINE#              32
+	-------            ENDPROC            start
+	-------            PROC               stop
+	C:001AH            LINE#              34
+	C:001AH            LINE#              34
+	C:001AH            LINE#              36
+	C:001CH            LINE#              37
+	C:001EH            LINE#              38
+	C:001FH            LINE#              39
+	C:0021H            LINE#              40
+	C:0022H            LINE#              41
+	C:0022H            LINE#              41
+	-------            ENDPROC            stop
+	-------            PROC               _send_byte
+	C:03CAH            LINE#              43
+	C:03CAH            LINE#              43
+	C:03CAH            LINE#              45
+	C:03CCH            LINE#              48
+	C:03D0H            LINE#              49
+	C:03D4H            LINE#              51
+	C:03D6H            LINE#              54
+	C:03D8H            LINE#              55
+	C:03D9H            LINE#              57
+	C:03DBH            LINE#              58
+	C:03DCH            LINE#              60
+	C:03E8H            LINE#              63
+	C:03EAH            LINE#              64
+	C:03ECH            LINE#              65
+	C:03EDH            LINE#              66
+	C:03F3H            LINE#              67
+	C:03F5H            LINE#              68
+	C:03F6H            LINE#              69
+	C:03F6H            LINE#              69
+	-------            ENDPROC            _send_byte
+	-------            PROC               _receive_byte
+	C:03F7H            LINE#              71
+	C:03F7H            LINE#              71
+	C:03F7H            LINE#              73
+	C:03FBH            LINE#              76
+	C:03FDH            LINE#              77
+	C:03FEH            LINE#              79
+	C:0401H            LINE#              80
+	C:0404H            LINE#              81
+	C:0406H            LINE#              82
+	C:0407H            LINE#              83
+	C:0413H            LINE#              86
+	C:0416H            LINE#              87
+	C:041AH            LINE#              89
+	C:041CH            LINE#              91
+	C:041EH            LINE#              92
+	C:041FH            LINE#              94
+	C:0421H            LINE#              95
+	C:0422H            LINE#              97
+	C:0424H            LINE#              99
+	C:0426H            LINE#              100
+	C:0426H            LINE#              100
+	-------            ENDPROC            _receive_byte
+	-------            PROC               _write_i2c
+	C:0427H            LINE#              102
+	C:0427H            LINE#              102
+	C:0429H            LINE#              106
+	C:042CH            LINE#              107
+	C:0431H            LINE#              108
+	C:0436H            LINE#              109
+	C:043FH            LINE#              112
+	C:0444H            LINE#              113
+	C:0449H            LINE#              114
+	C:0449H            LINE#              115
+	-------            ENDPROC            _write_i2c
+	-------            PROC               _read_i2c
+	C:044CH            LINE#              117
+	C:044CH            LINE#              117
+	C:044EH            LINE#              122
+	C:0451H            LINE#              123
+	C:0456H            LINE#              124
+	C:045BH            LINE#              125
+	C:0464H            LINE#              128
+	C:0469H            LINE#              129
+	C:046CH            LINE#              130
+	C:046FH            LINE#              131
+	C:0475H            LINE#              132
+	C:047AH            LINE#              133
+	C:047AH            LINE#              135
+	-------            ENDPROC            _read_i2c
+	-------            PROC               _bcdToDec
+	C:047DH            LINE#              45
+	C:047DH            LINE#              45
+	C:047DH            LINE#              47
+	C:048CH            LINE#              48
+	C:048CH            LINE#              48
+	-------            ENDPROC            _bcdToDec
+	-------            PROC               _decToBcd
+	C:048DH            LINE#              50
+	C:048DH            LINE#              50
+	C:048DH            LINE#              52
+	C:049EH            LINE#              53
+	C:049EH            LINE#              53
+	-------            ENDPROC            _decToBcd
+	-------            PROC               _DELAY_us
+	C:049FH            LINE#              55
+	C:049FH            LINE#              55
+	C:049FH            LINE#              57
+	C:04A3H            LINE#              59
+	C:04AAH            LINE#              61
+	C:04AAH            LINE#              61
+	-------            ENDPROC            _DELAY_us
+	-------            PROC               _DELAY_ms
+	C:04ABH            LINE#              63
+	C:04ABH            LINE#              63
+	C:04AFH            LINE#              65
+	C:04B3H            LINE#              67
+	C:04BAH            LINE#              68
+	C:04C1H            LINE#              71
+	C:04C1H            LINE#              71
+	-------            ENDPROC            _DELAY_ms
+	-------            PROC               _decToAscii
+	C:04C2H            LINE#              73
+	C:04C2H            LINE#              73
+	C:04C2H            LINE#              75
+	C:04C6H            LINE#              76
+	C:04C6H            LINE#              76
+	-------            ENDPROC            _decToAscii
+	-------            PROC               Soft_SPI_Init
+	C:04C7H            LINE#              29
+	C:04C7H            LINE#              29
+	C:04C7H            LINE#              31
+	C:04C9H            LINE#              32
+	C:04CBH            LINE#              33
+	C:04CDH            LINE#              34
+	C:04CFH            LINE#              35
+	C:04CFH            LINE#              35
+	-------            ENDPROC            Soft_SPI_Init
+	-------            PROC               CS_LOW
+	C:04D0H            LINE#              37
+	C:04D0H            LINE#              37
+	C:04D0H            LINE#              39
+	C:04D2H            LINE#              40
+	C:04D2H            LINE#              40
+	-------            ENDPROC            CS_LOW
+	-------            PROC               CS_HIGH
+	C:04D3H            LINE#              42
+	C:04D3H            LINE#              42
+	C:04D3H            LINE#              44
+	C:04D5H            LINE#              45
+	C:04D5H            LINE#              45
+	-------            ENDPROC            CS_HIGH
+	-------            PROC               _Soft_SPI_Write
+	D:000DH            SYMBOL             val
+	D:000EH            SYMBOL             i
+	C:04D6H            LINE#              47
+	C:04D6H            LINE#              47
+	C:04D8H            LINE#              50
+	C:04DBH            LINE#              52
+	C:04E0H            LINE#              53
+	C:04E4H            LINE#              55
+	C:04E6H            LINE#              56
+	C:04E8H            LINE#              57
+	C:04EBH            LINE#              58
+	C:04EDH            LINE#              59
+	C:04F3H            LINE#              50
+	C:04FAH            LINE#              61
+	C:04FAH            LINE#              61
+	-------            ENDPROC            _Soft_SPI_Write
+	-------            PROC               Soft_SPI_Read
+	D:000EH            SYMBOL             i
+	D:000DH            SYMBOL             value
+	C:04FBH            LINE#              64
+	C:04FBH            LINE#              64
+	C:04FBH            LINE#              67
+	C:04FEH            LINE#              68
+	C:0500H            LINE#              70
+	C:0506H            LINE#              72
+	C:0509H            LINE#              74
+	C:050BH            LINE#              81
+	C:050DH            LINE#              82
+	C:0510H            LINE#              83
+	C:0512H            LINE#              68
+	C:0519H            LINE#              87
+	C:051BH            LINE#              88
+	C:051BH            LINE#              88
+	-------            ENDPROC            Soft_SPI_Read
+	-------            PROC               _Soft_SPI_Transfer
+	D:000DH            SYMBOL             val
+	D:000FH            SYMBOL             i
+	D:000EH            SYMBOL             value
+	C:051CH            LINE#              90
+	C:051CH            LINE#              90
+	C:051EH            LINE#              93
+	C:0521H            LINE#              94
+	C:0523H            LINE#              96
+	C:0529H            LINE#              98
+	C:052CH            LINE#              100
+	C:052EH            LINE#              108
+	C:0533H            LINE#              109
+	C:0537H            LINE#              111
+	C:0539H            LINE#              113
+	C:053BH            LINE#              114
+	C:053EH            LINE#              115
+	C:0540H            LINE#              116
+	C:0546H            LINE#              94
+	C:054DH            LINE#              119
+	C:054FH            LINE#              120
+	C:054FH            LINE#              120
+	-------            ENDPROC            _Soft_SPI_Transfer
+	-------            PROC               delay_us
+	C:0550H            LINE#              123
+	C:0550H            LINE#              123
+	C:0550H            LINE#              125
+	C:0551H            LINE#              126
+	C:0551H            LINE#              126
+	-------            ENDPROC            delay_us
+	-------            PROC               main
+	C:0996H            LINE#              356
+	C:0996H            LINE#              356
+	C:0996H            LINE#              358
+	C:0998H            LINE#              359
+	C:099AH            LINE#              360
+	C:099DH            LINE#              361
+	C:09A0H            LINE#              362
+	C:09A3H            LINE#              363
+	C:09A6H            LINE#              368
+	C:09A9H            LINE#              370
+	C:09ACH            LINE#              373
+	C:09B8H            LINE#              374
+	C:09BDH            LINE#              375
+	C:09BFH            LINE#              378
+	C:09DBH            LINE#              380
+	C:09DEH            LINE#              381
+	C:09DFH            LINE#              383
+	C:09E0H            LINE#              381
+	C:09E2H            LINE#              382
+	C:09E4H            LINE#              383
+	C:0A01H            LINE#              387
+	C:0A04H            LINE#              388
+	C:0A09H            LINE#              389
+	C:0A2BH            LINE#              390
+	C:0A2EH            LINE#              392
+	C:0A35H            LINE#              394
+	C:0A37H            LINE#              395
+	C:0A46H            LINE#              396
+	C:0A48H            LINE#              397
+	C:0A4CH            LINE#              401
+	C:0A4FH            LINE#              403
+	C:0A5EH            LINE#              404
+	C:0A63H            LINE#              405
+	C:0A65H            LINE#              412
+	C:0A68H            LINE#              413
+	C:0A6BH            LINE#              414
+	C:0A6EH            LINE#              415
+	C:0A71H            LINE#              417
+	-------            ENDPROC            main
+	-------            PROC               serieInitHardware
+	C:0A74H            LINE#              422
+	C:0A74H            LINE#              422
+	C:0A74H            LINE#              424
+	C:0A77H            LINE#              425
+	C:0A7AH            LINE#              426
+	C:0A7DH            LINE#              427
+	C:0A7FH            LINE#              428
+	C:0A81H            LINE#              429
+	C:0A83H            LINE#              430
+	C:0A85H            LINE#              433
+	C:0A88H            LINE#              434
+	C:0A8BH            LINE#              435
+	C:0A8DH            LINE#              436
+	C:0A8FH            LINE#              437
+	C:0A92H            LINE#              438
+	C:0A94H            LINE#              439
+	C:0A96H            LINE#              440
+	C:0A96H            LINE#              440
+	-------            ENDPROC            serieInitHardware
+	-------            PROC               getRTC
+	C:0A97H            LINE#              442
+	C:0A97H            LINE#              442
+	C:0A97H            LINE#              444
+	C:0AA0H            LINE#              445
+	C:0AA9H            LINE#              446
+	C:0AB2H            LINE#              447
+	C:0ABBH            LINE#              448
+	C:0AC4H            LINE#              449
+	C:0ACDH            LINE#              450
+	C:0AD6H            LINE#              451
+	C:0AD6H            LINE#              451
+	-------            ENDPROC            getRTC
+	-------            PROC               setRTC
+	C:0AD7H            LINE#              453
+	C:0AD7H            LINE#              453
+	C:0AD7H            LINE#              455
+	C:0ADAH            LINE#              456
+	C:0ADFH            LINE#              457
+	C:0AE4H            LINE#              458
+	C:0AE9H            LINE#              459
+	C:0AEEH            LINE#              460
+	C:0AF3H            LINE#              461
+	C:0AF8H            LINE#              462
+	C:0AFDH            LINE#              463
+	C:0B02H            LINE#              464
+	C:0B07H            LINE#              465
+	C:0B07H            LINE#              466
+	-------            ENDPROC            setRTC
+	-------            PROC               SerialPortInt
+	D:0010H            SYMBOL             recepcion
+	C:0B0AH            LINE#              468
+	C:0B24H            LINE#              468
+	C:0B24H            LINE#              470
+	C:0B27H            LINE#              472
+	C:0B2AH            LINE#              474
+	C:0B2DH            LINE#              476
+	C:0B30H            LINE#              477
+	C:0B32H            LINE#              478
+	C:0B36H            LINE#              501
+	C:0B50H            LINE#              504
+	C:0B51H            LINE#              480
+	C:0B55H            LINE#              482
+	C:0B5AH            LINE#              484
+	C:0B65H            LINE#              489
+	C:0B71H            LINE#              490
+	C:0B78H            LINE#              492
+	C:0B85H            LINE#              494
+	C:0B88H            LINE#              501
+	C:0B88H            LINE#              504
+	-------            ENDPROC            SerialPortInt
+	-------            PROC               execute
+	D:0011H            SYMBOL             i
+	C:0B8AH            LINE#              506
+	C:0B8AH            LINE#              506
+	C:0B8AH            LINE#              511
+	C:0B8FH            LINE#              513
+	C:0B92H            LINE#              514
+	C:0B95H            LINE#              515
+	C:0B98H            LINE#              516
+	C:0B9BH            LINE#              517
+	C:0B9EH            LINE#              518
+	C:0BA1H            LINE#              519
+	C:0BA4H            LINE#              520
+	C:0BA9H            LINE#              521
+	C:0BACH            LINE#              522
+	C:0BB1H            LINE#              523
+	C:0BB4H            LINE#              524
+	C:0BB7H            LINE#              526
+	C:0BBAH            LINE#              528
+	C:0BBDH            LINE#              530
+	D:0012H            SYMBOL             total
+	D:0013H            SYMBOL             startCartel
+	C:0BC2H            LINE#              532
+	C:0BC5H            LINE#              533
+	C:0BC8H            LINE#              535
+	C:0BD3H            LINE#              537
+	C:0BDAH            LINE#              538
+	C:0BEBH            LINE#              535
+	C:0BEFH            LINE#              541
+	C:0BFAH            LINE#              542
+	C:0C06H            LINE#              541
+	C:0C0AH            LINE#              544
+	C:0C0DH            LINE#              545
+	C:0C0FH            LINE#              546
+	C:0C11H            LINE#              547
+	C:0C13H            LINE#              548
+	C:0C16H            LINE#              549
+	C:0C18H            LINE#              550
+	C:0C1AH            LINE#              551
+	C:0C1CH            LINE#              552
+	C:0C1EH            LINE#              553
+	C:0C22H            LINE#              554
+	C:0C26H            LINE#              555
+	C:0C29H            LINE#              556
+	C:0C2BH            LINE#              557
+	C:0C2EH            LINE#              559
+	C:0C2EH            LINE#              559
+	-------            ENDPROC            execute
+	-------            PROC               _read_mcp3208
+	D:0008H            SYMBOL             channel
+	D:000BH            SYMBOL             lectura
+	D:0009H            SYMBOL             dataHigh
+	D:000AH            SYMBOL             dataLow
+	C:0C2FH            LINE#              561
+	C:0C2FH            LINE#              561
+	C:0C31H            LINE#              566
+	C:0C33H            LINE#              568
+	C:0C3BH            LINE#              569
+	C:0C3FH            LINE#              571
+	C:0C42H            LINE#              573
+	C:0C45H            LINE#              574
+	C:0C4CH            LINE#              575
+	C:0C51H            LINE#              576
+	C:0C54H            LINE#              577
+	C:0C59H            LINE#              579
+	C:0C5CH            LINE#              580
+	C:0C69H            LINE#              581
+	C:0C6DH            LINE#              582
+	C:0CB4H            LINE#              583
+	C:0CB9H            LINE#              584
+	C:0D00H            LINE#              585
+	C:0D04H            LINE#              586
+	C:0D04H            LINE#              586
+	-------            ENDPROC            _read_mcp3208
+	-------            PROC               intPWM
+	C:0D05H            LINE#              588
+	C:0D0FH            LINE#              588
+	C:0D0FH            LINE#              590
+	C:0D11H            LINE#              592
+	C:0D14H            LINE#              594
+	C:0D16H            LINE#              595
+	C:0D22H            LINE#              596
+	C:0D29H            LINE#              597
+	C:0D32H            LINE#              601
+	C:0D34H            LINE#              602
+	C:0D3AH            LINE#              603
+	C:0D41H            LINE#              604
+	C:0D48H            LINE#              607
+	C:0D4AH            LINE#              608
+	C:0D56H            LINE#              609
+	C:0D56H            LINE#              609
+	-------            ENDPROC            intPWM
+	-------            PROC               _rotar
+	C:0D57H            LINE#              611
+	C:0D57H            LINE#              611
+	C:0D57H            LINE#              613
+	C:0D5AH            LINE#              615
+	C:0D68H            LINE#              621
+	C:0D69H            LINE#              619
+	C:0D77H            LINE#              621
+	C:0D77H            LINE#              621
+	-------            ENDPROC            _rotar
+	-------            PROC               clearDown
+	C:0D78H            LINE#              623
+	C:0D78H            LINE#              623
+	C:0D78H            LINE#              626
+	C:0D7AH            LINE#              627
+	C:0D7CH            LINE#              628
+	C:0D8CH            LINE#              627
+	C:0D90H            LINE#              626
+	C:0D94H            LINE#              629
+	C:0D94H            LINE#              629
+	-------            ENDPROC            clearDown
+	-------            PROC               clearUp
+	C:0D95H            LINE#              631
+	C:0D95H            LINE#              631
+	C:0D95H            LINE#              634
+	C:0D97H            LINE#              635
+	C:0D99H            LINE#              636
+	C:0DA9H            LINE#              635
+	C:0DADH            LINE#              634
+	C:0DB1H            LINE#              637
+	C:0DB1H            LINE#              637
+	-------            ENDPROC            clearUp
+	-------            PROC               set_oe_la
+	C:0DB2H            LINE#              639
+	C:0DB2H            LINE#              639
+	C:0DB2H            LINE#              641
+	C:0DB4H            LINE#              642
+	C:0DBBH            LINE#              643
+	C:0DBDH            LINE#              644
+	C:0DC4H            LINE#              645
+	C:0DC6H            LINE#              646
+	C:0DCDH            LINE#              647
+	C:0DCFH            LINE#              648
+	C:0DCFH            LINE#              648
+	-------            ENDPROC            set_oe_la
+	-------            PROC               _get_bit
+	C:0DD0H            LINE#              650
+	C:0DD0H            LINE#              650
+	C:0DD0H            LINE#              652
+	C:0DF3H            LINE#              653
+	C:0DF3H            LINE#              653
+	-------            ENDPROC            _get_bit
+	-------            PROC               set_up_letter
+	D:0008H            SYMBOL             k
+	D:0009H            SYMBOL             j
+	C:0DF4H            LINE#              655
+	C:0DF4H            LINE#              655
+	C:0DF4H            LINE#              658
+	C:0DFBH            LINE#              659
+	C:0DFDH            LINE#              660
+	C:0E04H            LINE#              662
+	C:0E07H            LINE#              664
+	C:0E0AH            LINE#              666
+	C:0E1FH            LINE#              667
+	C:0E32H            LINE#              668
+	C:0E45H            LINE#              669
+	C:0E58H            LINE#              670
+	C:0E6BH            LINE#              671
+	C:0E7EH            LINE#              672
+	C:0E91H            LINE#              673
+	C:0EA4H            LINE#              674
+	C:0EB7H            LINE#              675
+	C:0ECAH            LINE#              677
+	C:0ECCH            LINE#              678
+	C:0ED3H            LINE#              679
+	C:0ED5H            LINE#              680
+	C:0EDCH            LINE#              664
+	C:0EE8H            LINE#              662
+	C:0EF4H            LINE#              684
+	C:0EF4H            LINE#              685
+	-------            ENDPROC            set_up_letter
+	-------            PROC               setPuntos
+	C:0EF7H            LINE#              687
+	C:0EF7H            LINE#              687
+	C:0EF7H            LINE#              689
+	C:0F04H            LINE#              690
+	C:0F11H            LINE#              691
+	C:0F1EH            LINE#              692
+	C:0F1EH            LINE#              692
+	-------            ENDPROC            setPuntos
+	-------            PROC               _setAMPM
+	C:0F1FH            LINE#              694
+	C:0F1FH            LINE#              694
+	C:0F1FH            LINE#              696
+	C:0F22H            LINE#              698
+	C:0F29H            LINE#              699
+	C:0F30H            LINE#              700
+	C:0F37H            LINE#              702
+	C:0F3EH            LINE#              703
+	C:0F44H            LINE#              704
+	C:0F4AH            LINE#              707
+	C:0F4DH            LINE#              709
+	C:0F54H            LINE#              710
+	C:0F5BH            LINE#              711
+	C:0F62H            LINE#              713
+	C:0F69H            LINE#              714
+	C:0F6FH            LINE#              715
+	C:0F75H            LINE#              717
+	C:0F75H            LINE#              717
+	-------            ENDPROC            _setAMPM
+	-------            PROC               _setHora
+	D:0009H            SYMBOL             decHora
+	D:000AH            SYMBOL             uniHora
+	D:000BH            SYMBOL             decMin
+	D:0008H            SYMBOL             uniMin
+	D:000CH            SYMBOL             i
+	C:0F76H            LINE#              719
+	C:0F76H            LINE#              719
+	C:0F7CH            LINE#              723
+	C:0F80H            LINE#              725
+	C:0F83H            LINE#              727
+	C:0F8EH            LINE#              728
+	C:0F99H            LINE#              725
+	C:0FA3H            LINE#              733
+	C:0FA6H            LINE#              735
+	C:0FB1H            LINE#              736
+	C:0FD8H            LINE#              737
+	C:1015H            LINE#              738
+	C:1020H            LINE#              739
+	C:1026H            LINE#              733
+	C:1032H            LINE#              745
+	C:1035H            LINE#              748
+	C:1040H            LINE#              749
+	C:1084H            LINE#              750
+	C:1109H            LINE#              751
+	C:1114H            LINE#              752
+	C:111AH            LINE#              755
+	C:1195H            LINE#              756
+	C:11A1H            LINE#              757
+	C:11A7H            LINE#              760
+	C:11AFH            LINE#              761
+	C:1201H            LINE#              762
+	C:1284H            LINE#              763
+	C:1290H            LINE#              764
+	C:1296H            LINE#              765
+	C:129EH            LINE#              766
+	C:1328H            LINE#              745
+	C:1334H            LINE#              770
+	C:1334H            LINE#              770
+	-------            ENDPROC            _setHora
+	-------            PROC               _setTemp
+	D:0008H            SYMBOL             decTemp
+	D:0009H            SYMBOL             uniTemp
+	D:000AH            SYMBOL             i
+	C:1335H            LINE#              772
+	C:1335H            LINE#              772
+	C:1339H            LINE#              775
+	C:133CH            LINE#              777
+	C:1371H            LINE#              778
+	C:13A6H            LINE#              780
+	C:13DBH            LINE#              781
+	C:1410H            LINE#              775
+	C:141CH            LINE#              784
+	C:1422H            LINE#              785
+	C:1428H            LINE#              786
+	C:142EH            LINE#              788
+	C:1433H            LINE#              789
+	C:143AH            LINE#              790
+	C:1441H            LINE#              792
+	C:1447H            LINE#              793
+	C:144DH            LINE#              794
+	C:1453H            LINE#              796
+	C:145AH            LINE#              797
+	C:145FH            LINE#              798
+	C:1466H            LINE#              799
+	C:1466H            LINE#              799
+	-------            ENDPROC            _setTemp
+	-------            PROC               _checkChar
+	C:1467H            LINE#              801
+	C:1467H            LINE#              801
+	C:1467H            LINE#              803
+	C:1472H            LINE#              804
+	C:1474H            LINE#              811
+	C:1475H            LINE#              805
+	C:1480H            LINE#              806
+	C:1482H            LINE#              811
+	C:1483H            LINE#              807
+	C:148EH            LINE#              808
+	C:1490H            LINE#              811
+	C:1491H            LINE#              809
+	C:149FH            LINE#              810
+	C:14A1H            LINE#              811
+	C:14A1H            LINE#              811
+	-------            ENDPROC            _checkChar
+	-------            PROC               rotarCartel
+	D:0008H            SYMBOL             i
+	D:0009H            SYMBOL             j
+	C:14A2H            LINE#              813
+	C:14A2H            LINE#              813
+	C:14A2H            LINE#              816
+	C:14A5H            LINE#              818
+	C:1509H            LINE#              820
+	C:150BH            LINE#              823
+	C:1523H            LINE#              824
+	C:1543H            LINE#              825
+	C:1555H            LINE#              826
+	C:156EH            LINE#              827
+	C:1571H            LINE#              820
+	C:1578H            LINE#              816
+	C:1584H            LINE#              834
+	C:1589H            LINE#              836
+	C:158CH            LINE#              838
+	C:1595H            LINE#              839
+	C:1598H            LINE#              841
+	C:15A2H            LINE#              842
+	C:15A5H            LINE#              844
+	C:15AAH            LINE#              846
+	C:15ADH            LINE#              847
+	C:15AFH            LINE#              848
+	C:15B9H            LINE#              850
+	C:15BCH            LINE#              855
+	C:15BFH            LINE#              860
+	C:15C1H            LINE#              862
+	C:15C1H            LINE#              862
+	-------            ENDPROC            rotarCartel
+	-------            PROC               ctrlRotar
+	C:15C2H            LINE#              864
+	C:15C2H            LINE#              864
+	C:15C2H            LINE#              867
+	C:15C5H            LINE#              869
+	C:15DEH            LINE#              871
+	C:15E0H            LINE#              872
+	C:15E2H            LINE#              873
+	C:15EEH            LINE#              874
+	C:15F1H            LINE#              875
+	C:15FBH            LINE#              876
+	C:15FFH            LINE#              877
+	C:1609H            LINE#              878
+	C:160EH            LINE#              880
+	C:1611H            LINE#              881
+	C:161BH            LINE#              883
+	C:1620H            LINE#              884
+	C:162BH            LINE#              888
+	C:162EH            LINE#              889
+	C:1631H            LINE#              891
+	C:1636H            LINE#              893
+	C:1639H            LINE#              894
+	C:163CH            LINE#              899
+	C:163CH            LINE#              899
+	-------            ENDPROC            ctrlRotar
+	-------            PROC               ctrlBrillo
+	C:163DH            LINE#              901
+	C:163DH            LINE#              901
+	C:163DH            LINE#              903
+	C:1646H            LINE#              904
+	C:1653H            LINE#              906
+	C:1657H            LINE#              908
+	C:1671H            LINE#              910
+	C:1675H            LINE#              914
+	C:1678H            LINE#              916
+	C:1678H            LINE#              916
+	-------            ENDPROC            ctrlBrillo
+	-------            PROC               fixGetRTC
+	C:1679H            LINE#              918
+	C:1679H            LINE#              918
+	C:1679H            LINE#              920
+	C:167EH            LINE#              921
+	C:1683H            LINE#              923
+	C:1686H            LINE#              925
+	C:1689H            LINE#              926
+	C:1690H            LINE#              927
+	C:1697H            LINE#              928
+	C:169EH            LINE#              929
+	C:16A5H            LINE#              930
+	C:16ACH            LINE#              931
+	C:16B3H            LINE#              932
+	C:16BAH            LINE#              933
+	C:16BAH            LINE#              933
+	-------            ENDPROC            fixGetRTC
+	-------            PROC               fixSetRTC
+	C:16BBH            LINE#              935
+	C:16BBH            LINE#              935
+	C:16BBH            LINE#              937
+	C:16C2H            LINE#              938
+	C:16C9H            LINE#              939
+	C:16D0H            LINE#              940
+	C:16D7H            LINE#              941
+	C:16DEH            LINE#              942
+	C:16E5H            LINE#              943
+	C:16ECH            LINE#              945
+	C:16F2H            LINE#              946
+	C:16F7H            LINE#              947
+	C:16FDH            LINE#              948
+	C:1701H            LINE#              949
+	C:1704H            LINE#              950
+	C:1704H            LINE#              950
+	-------            ENDPROC            fixSetRTC
+	-------            PROC               _setTimbre
+	D:0008H            SYMBOL             sec
+	C:1705H            LINE#              952
+	C:1705H            LINE#              952
+	C:1705H            LINE#              954
+	C:1712H            LINE#              956
+	C:1714H            LINE#              959
+	C:1721H            LINE#              961
+	C:1723H            LINE#              964
+	C:1730H            LINE#              966
+	C:1732H            LINE#              969
+	C:173FH            LINE#              971
+	C:1741H            LINE#              974
+	C:174EH            LINE#              976
+	C:1750H            LINE#              979
+	C:175DH            LINE#              981
+	C:175FH            LINE#              984
+	C:176CH            LINE#              986
+	C:176EH            LINE#              989
+	C:177BH            LINE#              991
+	C:177DH            LINE#              994
+	C:178AH            LINE#              996
+	C:178CH            LINE#              999
+	C:1799H            LINE#              1001
+	C:179BH            LINE#              1004
+	C:17A8H            LINE#              1006
+	C:17AAH            LINE#              1009
+	C:17B7H            LINE#              1011
+	C:17B9H            LINE#              1014
+	C:17B9H            LINE#              1014
+	-------            ENDPROC            _setTimbre
+	-------            ENDMOD             program
+	C:015EH            PUBLIC             ?MULTIEEEX
+	C:0161H            PUBLIC             ?MULTIEEE
+	C:02BBH            PUBLIC             __IEEE_TRAP_NAN__
+	C:02C6H            PUBLIC             __IEEE_END_RESULT__
+	C:02BFH            PUBLIC             __IEEE_RESULT_NULL__
+	C:02CCH            PUBLIC             _END_OP_IEEE?C
+	C:02B3H            PUBLIC             __IEEE_TRAP_DEB__
+	C:02DDH            PUBLIC             __IEEE_GET_EXP_SET_MANT__
+	C:02F7H            PUBLIC             ?CAST_IEEE
+	C:0399H            PUBLIC             ?CV_CHAR_IEEE
+	C:033DH            PUBLIC             ?CV_IEEE_LS
+	C:02FCH            PUBLIC             ?CV_LS_IEEE
+	C:0393H            PUBLIC             ?CV_IEEE_LU
+	C:0339H            PUBLIC             ?CV_LU_IEEE
+	C:008CH            PUBLIC             ?C_CBADDMUL
+	C:0026H            PUBLIC             ?C_START1
+	C:000EH            PUBLIC             MV4_XD2RG?C
+	C:00A1H            PUBLIC             ?C_SIDIV
+	C:00C9H            PUBLIC             ?C_UIDIV
+	C:014EH            PUBLIC             CPL_R4R5
+	C:0156H            PUBLIC             CPL_R6R7
+	C:0101H            PUBLIC             DIV_2
+	D:00A0H            PUBLIC             HPD_ADDR
+	C:17BAH            PUBLIC             ?C_INITSEGSTART
+	N:00FFH            PUBLIC             IDATALEN
+	N:00FFH            PUBLIC             _INITP2?
+
+UNCALLED SEGMENTS:
+------------------
+    ?PR?_decToAscii?PROGRAM: Function _decToAscii in file F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGR&
+ADO\PROGRAM.OBJ was not called
+    ?PR?_write_i2c?PROGRAM: Function _write_i2c in file F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRAD&
+O\PROGRAM.OBJ was not called
+
+----------------------
+SUGGESTED OPTIMIZATION
+----------------------
+Warning: 36 (24H) data bytes in the range [00H-80H] are available for storage.
+         Consider using some of these for 'data' variables in your source files.
+
+
+LINK/LOCATE RUN COMPLETE,  NO ERROR FOUND.
+

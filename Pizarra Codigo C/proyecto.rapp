@@ -1,0 +1,49 @@
+
+<ApplicationBuild Header="proyecto" Extern=".\proyecto.rapp" Path=".\proyecto.rapp" AsyncBuild="" OutputFile=".\proyecto.aof" sate="98" >
+	<NodeC Path=".\program.c" Header="program.c" Marker="-1" AsyncBuild="" OutputFile=".\program.obj" sate="0" />
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="General" >
+					<Property Header="TargetFamily" Value="80C51" />
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									
+				</Section>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+			</Set>
+			<Set Header="Target" >
+				<Section Header="Processor80C51" >
+					<Property Header="Processor" Value="AT89C52" Removable="1" />
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									
+				</Section>
+				<Section Header="ToolSet80C51" >
+					<Property Header="BuildToolSet80C51" Value="80C51\\RaisonanceTools.config" Removable="1" />
+					<Property Header="ArelocInfo" Value="" Removable="1" />
+							
+				</Section>
+					
+			</Set>
+			<Set Header="RL51" >
+				<Section Header="Memory" >
+					<Property Header="InitRAMsize" Value="256" Removable="1" />
+																																																																																																																																																																																																													
+				</Section>
+				<Section Header="Linker" >
+					<Property Header="GenBin" Value="" Removable="1" />
+																																																																																																																																																																																																																																																																																																																																		
+				</Section>
+				<Section Header="Banking" >
+					<Property Header="OnOff" Value="No" Removable="1" />
+																																																																																																																																																																																																																																																																												
+				</Section>
+																																																																																																																																																															
+			</Set>
+			<Set Header="RC51" >
+				<Section Header="Register" >
+					<Property Header="REGBANK" Value="0" Removable="1" />
+																																																																																																																																																																																																																																																																			
+				</Section>
+																																																																																																																																																																																																									
+			</Set>
+		</Config>
+	</Options>
+</ApplicationBuild>

@@ -1,0 +1,103 @@
+
+<Debug>
+	<proyecto>
+		<SpyWatch>
+			<Report>
+				<Def Header="InspectReport" NbCol="4" >
+					<Col Type="PT_STRING" Header="Name" sizeCache="DDDDDDDDDDDD" AutoSize="1" Edit="1" Sortable="1" />
+					<Col Type="PT_STRING" Header="Value" sizeCache="DDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+					<Col Type="PT_STRING" Header="File" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+					<Col Type="PT_STRING" Header="Line" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+																																																																																																																														
+				</Def>
+				<Rows>
+					<Row Expand="0" Name="datosReloj" Value="{ 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) }" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="416" />
+					<Row Expand="0000000000000000000000000000000000000000000" Name="letrasDias" Value="{     {        { 4080 (0xFF0), 28656 (0x6FF0), 53104 (0xCF70) },        { 65280 (0xFF00), 65382 (0xFF66), 32716 (0x7FCC) } },     {        { 16368 (0x3FF0), 28656 (0x6FF0), 53232 (0xCFF0) },        { 61235 (0xEF33), 40806 (0x9F66), 32716 (0x7FCC) } },     {        { 16368 (0x3FF0), 4080 (0xFF0), 53232 (0xCFF0) },        { 52787 (0xCE33), 65280 (0xFF00), 14284 (0x37CC) } },     {        { 16368 (0x3FF0), 28656 (0x6FF0), 53232 (0xCFF0) },        { 13107 (0x3333), 1638 (0x666), 52428 (0xCCCC) } }... }" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="343" />
+					<Row Expand="10000000000" Name="pizarra" Value="{     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) },     { 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0), 0 (0x0) }... }" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="74" />
+					<Row Name="day" Value="error(3): Undefined symbol" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="1012" />
+					<Row Name="m" Value="0 (0x0)" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="1019" />
+					<Row Name="i" Value="0 (0x0)" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="1021" />
+					<Row Name="k" Value="0 (0x0)" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="1024" />
+					<Row Name="j=" Value="0 (0x0)" File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="1029" />
+																																																																																																																														
+				</Rows>
+																																																																																																		
+			</Report>
+																																																																						
+		</SpyWatch>
+		<CodeView TopRow="2627" Focus="4294967295" >
+			<CodeReport>
+				<0>142</0>
+				<1>156</1>
+				<2>85</2>
+				<3>470</3>
+				<4>85</4>
+				<5>180</5>
+																																																																																																		
+			</CodeReport>
+																																																																						
+		</CodeView>
+		<CodeView TopRow="2627" Focus="4294967295" >
+			<CodeReport>
+				<0>142</0>
+				<1>156</1>
+				<2>85</2>
+				<3>470</3>
+				<4>85</4>
+				<5>180</5>
+																																																																																																		
+			</CodeReport>
+																																																																						
+		</CodeView>
+																																										
+	</proyecto>
+	<Flags>
+		<Report>
+			<Def Header="FlagReport" NbCol="9" >
+				<Col Type="PT_BOOL" Header="Check" sizeCache="18" AutoSize="0" Edit="1" Sortable="1" Icon="C:\Raisonance\Ride\Config\Resources\check.bmp" />
+				<Col Type="PT_STRING" Header="Kind" sizeCache="DDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="KindID" sizeCache="DD" AutoSize="1" Edit="0" Sortable="1" Visible="0" />
+				<Col Type="PT_STRING" Header="Space" sizeCache="DDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="SpaceID" sizeCache="DD" AutoSize="0" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Line" sizeCache="DDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="File" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="Path" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condition" sizeCache="DDDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" />
+				<Col Type="PT_STRING" Header="Condexpr" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condcount" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+							
+			</Def>
+			<Rows/>
+					
+		</Report>
+			
+	</Flags>
+	<Views>
+		<View File="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" Line="356" Index="0" focus="1" />
+		<View File="F:\Universidad\Proyecto\Pa Tesis\integrado\tools.h" Line="0" Index="1" />
+	</Views>
+	<Grep>
+		<GrepIncludeSub>yes</GrepIncludeSub>
+		<GrepMatchCase>no</GrepMatchCase>
+		<GrepMatchWhole>no</GrepMatchWhole>
+		<GrepRegExp>no</GrepRegExp>
+		<GrepReplaceMode>no</GrepReplaceMode>
+		<GrepFileTypes>
+			<GrepFileTypesValue>*.c;*.h</GrepFileTypesValue>
+			<GrepFileType>*.c;*.h</GrepFileType>
+		</GrepFileTypes>
+		<GrepFindWhat>
+			<GrepFindWhatValue/>
+		</GrepFindWhat>
+		<GrepFindWhere>
+			<GrepFindWhereValue/>
+			<GrepPathStr>Application Files</GrepPathStr>
+			<GrepPathStr>Application Path</GrepPathStr>
+		</GrepFindWhere>
+		<GrepReplaceWhat>
+			<GrepReplaceWhatValue/>
+		</GrepReplaceWhat>
+	</Grep>
+	<FindStrings/>
+	<ReplaceStrings/>
+</Debug>

@@ -1,0 +1,107 @@
+MS-DOS LX51 CODE BANKING LINKER/LOCATOR V05.08.10.309
+
+
+INTER-MODULE CROSS-REFERENCE LISTING
+------------------------------------
+
+          NAME. . . . . . . . USAGE   MODULE NAMES
+          ----------------------------------------
+          ?CAST_IEEE  . . . . CODE    [CONVIEEE]: 
+          ?CV_CHAR_IEEE . . . CODE    [CONVIEEE]: 
+          ?CV_IEEE_LS . . . . CODE    [CONVIEEE]:  PROGRAM
+          ?CV_IEEE_LU . . . . CODE    [CONVIEEE]: 
+          ?CV_LS_IEEE . . . . CODE    [CONVIEEE]: 
+          ?CV_LU_IEEE . . . . CODE    [CONVIEEE]:  PROGRAM
+          ?C_CBADDMUL . . . . CODE    [_C_CBAM]:  PROGRAM
+          ?C_INITSEGSTART . . CODE    [_C_INITD]:  C1S
+          ?C_SIDIV  . . . . . CODE    [DIVS]: 
+          ?C_START1 . . . . . CODE    [C1S]:  PROGRAM
+          ?C_UIDIV  . . . . . CODE    [DIVS]:  PROGRAM
+          ?MULTIEEE . . . . . CODE    [MULTIEEE]:  PROGRAM
+          ?MULTIEEEX  . . . . CODE    [MULTIEEE]: 
+          ?_setHora?BYTE  . . DATA    [PROGRAM]:  PROGRAM
+          ?_setTimbre?BYTE  . DATA    [PROGRAM]:  PROGRAM
+          auxiliar  . . . . . DATA    [PROGRAM]: 
+          cartelChar  . . . . CODE    [PROGRAM]: 
+          centinela . . . . . DATA    [PROGRAM]: 
+          clearDown . . . . . CODE    [PROGRAM]:  PROGRAM
+          clearUp . . . . . . CODE    [PROGRAM]:  PROGRAM
+          columnChar  . . . . DATA    [PROGRAM]: 
+          CPL_R4R5  . . . . . CODE    [DIVS]: 
+          CPL_R6R7  . . . . . CODE    [DIVS]: 
+          CS_HIGH . . . . . . CODE    [PROGRAM]: 
+          CS_LOW  . . . . . . CODE    [PROGRAM]: 
+          ctrlBrillo  . . . . CODE    [PROGRAM]:  PROGRAM
+          ctrlChar  . . . . . BIT     [PROGRAM]: 
+          ctrlRotar . . . . . CODE    [PROGRAM]:  PROGRAM
+          ctrlTemp  . . . . . DATA    [PROGRAM]: 
+          datosReloj  . . . . DATA    [PROGRAM]: 
+          delay_us  . . . . . CODE    [PROGRAM]:  PROGRAM
+          DIV_2 . . . . . . . CODE    [DIVS]: 
+          entrada . . . . . . DATA    [PROGRAM]: 
+          execute . . . . . . CODE    [PROGRAM]:  PROGRAM
+          finalChar . . . . . DATA    [PROGRAM]: 
+          fixGetRTC . . . . . CODE    [PROGRAM]:  PROGRAM
+          fixSetRTC . . . . . CODE    [PROGRAM]:  PROGRAM
+          getRTC  . . . . . . CODE    [PROGRAM]:  PROGRAM
+          HPD_ADDR  . . . . . DATA    [HPD]:  C1S
+          IDATALEN  . . . . . NUMBER  [_C_IDATALEN]:  C1S
+          intPWM  . . . . . . CODE    [PROGRAM]: 
+          l . . . . . . . . . DATA    [PROGRAM]: 
+          main  . . . . . . . CODE    [PROGRAM]:  C1S
+          mostrarTemp . . . . BIT     [PROGRAM]: 
+          MV4_XD2RG?C . . . . CODE    [MV_XD2RG4]:  MULTIEEE
+          nextChar  . . . . . DATA    [PROGRAM]: 
+          numeros . . . . . . CODE    [PROGRAM]: 
+          pizarra . . . . . . IDATA   [PROGRAM]: 
+          promedio  . . . . . DATA    [PROGRAM]: 
+          PWM . . . . . . . . DATA    [PROGRAM]: 
+          readMCP . . . . . . DATA    [PROGRAM]: 
+          resto0  . . . . . . DATA    [PROGRAM]: 
+          resto1  . . . . . . DATA    [PROGRAM]: 
+          rotarCartel . . . . CODE    [PROGRAM]:  PROGRAM
+          rotChar . . . . . . DATA    [PROGRAM]: 
+          SerialPortInt . . . CODE    [PROGRAM]: 
+          serieInitHardware . CODE    [PROGRAM]:  PROGRAM
+          setPuntos . . . . . CODE    [PROGRAM]:  PROGRAM
+          setRTC  . . . . . . CODE    [PROGRAM]: 
+          set_oe_la . . . . . CODE    [PROGRAM]: 
+          set_up_letter . . . CODE    [PROGRAM]:  PROGRAM
+          slave_ack . . . . . DATA    [PROGRAM]: 
+          Soft_SPI_Init . . . CODE    [PROGRAM]: 
+          Soft_SPI_Read . . . CODE    [PROGRAM]: 
+          start . . . . . . . CODE    [PROGRAM]: 
+          stop  . . . . . . . CODE    [PROGRAM]: 
+          temp  . . . . . . . DATA    [PROGRAM]: 
+          temperatura . . . . DATA    [PROGRAM]: 
+          TIM1_INIT . . . . . NUMBER  [** UNRESOLVED **]:
+          typeChar  . . . . . DATA    [PROGRAM]: 
+          valorChar . . . . . DATA    [PROGRAM]: 
+          XSTACKLEN . . . . . NUMBER  [** UNRESOLVED **]:
+          _bcdToDec . . . . . CODE    [PROGRAM]: 
+          _checkChar  . . . . CODE    [PROGRAM]: 
+          _decToAscii . . . . CODE    [PROGRAM]: 
+          _decToBcd . . . . . CODE    [PROGRAM]: 
+          _DELAY_ms . . . . . CODE    [PROGRAM]: 
+          _DELAY_us . . . . . CODE    [PROGRAM]: 
+          _END_OP_IEEE?C  . . CODE    [TOOLIEEE]:  MULTIEEE
+          _get_bit  . . . . . CODE    [PROGRAM]: 
+          _INITP2?  . . . . . NUMBER  [_C_IDATALEN]:  C1S
+          _read_i2c . . . . . CODE    [PROGRAM]: 
+          _read_mcp3208 . . . CODE    [PROGRAM]:  PROGRAM
+          _receive_byte . . . CODE    [PROGRAM]: 
+          _rotar  . . . . . . CODE    [PROGRAM]: 
+          _send_byte  . . . . CODE    [PROGRAM]: 
+          _setAMPM  . . . . . CODE    [PROGRAM]:  PROGRAM
+          _setHora  . . . . . CODE    [PROGRAM]:  PROGRAM
+          _setTemp  . . . . . CODE    [PROGRAM]:  PROGRAM
+          _setTimbre  . . . . CODE    [PROGRAM]:  PROGRAM
+          _Soft_SPI_Transfer  CODE    [PROGRAM]: 
+          _Soft_SPI_Write . . CODE    [PROGRAM]: 
+          _STACK  . . . . . . IDATA   [PROGRAM]:  C1S
+          _write_i2c  . . . . CODE    [PROGRAM]: 
+          __IEEE_END_RESULT__ CODE    [TOOLIEEE]:  MULTIEEE
+          __IEEE_GET_EXP_SET_MCODE    [TOOLIEEE]:  MULTIEEE
+          __IEEE_RESULT_NULL__CODE    [TOOLIEEE]:  MULTIEEE
+          __IEEE_TRAP_DEB__ . CODE    [TOOLIEEE]:  MULTIEEE
+          __IEEE_TRAP_NAN__ . CODE    [TOOLIEEE]:  MULTIEEE

@@ -1,0 +1,97 @@
+<aoffile FileName="PROYECTO">
+   <modulelist>
+      <module Name="PROGRAM" Origin="OBJ(F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\PROGRAM.OBJ)">
+      <filelist>
+         <file FI="0001"  Time="00000000"  FName="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c"/>
+         <file FI="0002"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\stdio.h"/>
+         <file FI="0003"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\stdarg.h"/>
+         <file FI="0004"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\MAIN_C51.h"/>
+         <file FI="0005"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\MAIN_C51.h"/>
+         <file FI="0006"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\stdlib.h"/>
+         <file FI="0007"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\MAIN_C51.h"/>
+         <file FI="0008"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\alloc.h"/>
+         <file FI="0009"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\MAIN_C51.h"/>
+         <file FI="000a"  Time="00000000"  FName="i2c_lib.h"/>
+         <file FI="000b"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\reg51.h"/>
+         <file FI="000c"  Time="00000000"  FName="tools.h"/>
+         <file FI="000d"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\reg52.h"/>
+         <file FI="000e"  Time="00000000"  FName="b_spi.h"/>
+         <file FI="000f"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\reg52.h"/>
+         <file FI="0010"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\intrins.h"/>
+         <file FI="0011"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\INTRI51.h"/>
+         <file FI="0012"  Time="00000000"  FName="C:\Raisonance\Ride\Inc\51\reg52.h"/>
+         <file FI="0013"  Time="00000000"  FName="F:\Universidad\Proyecto\Pa Tesis\integrado\program.lst"/>
+      </filelist>
+      <macrolist>
+         <macro Name="__INTRINSIC_H__" ArgNum="00" ProtoName="__INTRINSIC_H__" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\intrins.h" DeclLine="21" />
+         <macro Name="delayus" ArgNum="00" ProtoName="delayus" Equivalency="_nop_ ( ) ;" DeclFile="i2c_lib.h" DeclLine="9" />
+         <macro Name="__SMALL" ArgNum="00" ProtoName="__SMALL" Equivalency="1" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="26" />
+         <macro Name="LOCAL_GENERIC" ArgNum="00" ProtoName="LOCAL_GENERIC" Equivalency="generic" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="20" />
+         <macro Name="NULL" ArgNum="00" ProtoName="NULL" Equivalency="0L" DeclFile="C:\Raisonance\Ride\Inc\stdarg.h" DeclLine="27" />
+         <macro Name="DIR_WRITE" ArgNum="00" ProtoName="DIR_WRITE" Equivalency="0xD0" DeclFile="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" DeclLine="14" />
+         <macro Name="_SIZE_T" ArgNum="00" ProtoName="_SIZE_T" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="75" />
+         <macro Name="va_arg" ArgNum="02" ProtoName="va_arg(ap, t)" Equivalency="( * ( t __Stack_Space__ * ) ( ( ap -= sizeof ( t ) ) + 1 ) )" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="91" />
+         <macro Name="allocmem" ArgNum="00" ProtoName="allocmem" Equivalency="xdata" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="48" />
+         <macro Name="_VA_LIST_DEFINED" ArgNum="00" ProtoName="_VA_LIST_DEFINED" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\stdarg.h" DeclLine="51" />
+         <macro Name="CR" ArgNum="00" ProtoName="CR" Equivalency="0x0D" DeclFile="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" DeclLine="9" />
+         <macro Name="_ALLOC_H_" ArgNum="00" ProtoName="_ALLOC_H_" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\alloc.h" DeclLine="21" />
+         <macro Name="strtod" ArgNum="00" ProtoName="strtod" Equivalency="strtodf" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="56" />
+         <macro Name="_MEMORY_MODELS" ArgNum="00" ProtoName="_MEMORY_MODELS" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="24" />
+         <macro Name="init_mempool" ArgNum="00" ProtoName="init_mempool" Equivalency="mempool_init" DeclFile="C:\Raisonance\Ride\Inc\alloc.h" DeclLine="93" />
+         <macro Name="alloc_size_t" ArgNum="00" ProtoName="alloc_size_t" Equivalency="size_t" DeclFile="C:\Raisonance\Ride\Inc\alloc.h" DeclLine="25" />
+         <macro Name="va_start" ArgNum="02" ProtoName="va_start(ap, v)" Equivalency="ap = ( va_list ) ( __SP__ - __STARTPOS__ )" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="90" />
+         <macro Name="DIR_READ" ArgNum="00" ProtoName="DIR_READ" Equivalency="0xD1" DeclFile="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" DeclLine="13" />
+         <macro Name="PWM_Freq_Num" ArgNum="00" ProtoName="PWM_Freq_Num" Equivalency="1" DeclFile="tools.h" DeclLine="10" />
+         <macro Name="va_end" ArgNum="01" ProtoName="va_end(ap)" Equivalency="( ( void ) 0 )" DeclFile="C:\Raisonance\Ride\Inc\stdarg.h" DeclLine="54" />
+         <macro Name="__TINY" ArgNum="00" ProtoName="__TINY" Equivalency="0" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="25" />
+         <macro Name="_STDLIB_H_" ArgNum="00" ProtoName="_STDLIB_H_" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\stdlib.h" DeclLine="21" />
+         <macro Name="EOF" ArgNum="00" ProtoName="EOF" Equivalency="- 1" DeclFile="C:\Raisonance\Ride\Inc\stdio.h" DeclLine="32" />
+      </macrolist>
+      <macrolist>
+         <macro Name="__LARGE" ArgNum="00" ProtoName="__LARGE" Equivalency="4" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="29" />
+         <macro Name="__MEDIUM" ArgNum="00" ProtoName="__MEDIUM" Equivalency="3" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="28" />
+         <macro Name="__COMPACT" ArgNum="00" ProtoName="__COMPACT" Equivalency="2" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="27" />
+         <macro Name="LF" ArgNum="00" ProtoName="LF" Equivalency="0x0A" DeclFile="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" DeclLine="8" />
+         <macro Name="atof" ArgNum="00" ProtoName="atof" Equivalency="atoff" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="55" />
+         <macro Name="__Stack_Space__" ArgNum="00" ProtoName="__Stack_Space__" Equivalency="idata" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="88" />
+         <macro Name="DATA_SIZE" ArgNum="00" ProtoName="DATA_SIZE" Equivalency="40" DeclFile="F:\Universidad\Proyecto\Pa Tesis\integrado\program.c" DeclLine="7" />
+         <macro Name="_STDARG_H_" ArgNum="00" ProtoName="_STDARG_H_" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\stdarg.h" DeclLine="22" />
+         <macro Name="_STDIO_H_" ArgNum="00" ProtoName="_STDIO_H_" Equivalency="" DeclFile="C:\Raisonance\Ride\Inc\stdio.h" DeclLine="21" />
+         <macro Name="__HUGE" ArgNum="00" ProtoName="__HUGE" Equivalency="5" DeclFile="C:\Raisonance\Ride\Inc\51\MAIN_C51.h" DeclLine="30" />
+         <macro Name="__TOOLS_H" ArgNum="00" ProtoName="__TOOLS_H" Equivalency="" DeclFile="tools.h" DeclLine="2" />
+      </macrolist>
+      <typelist>
+         <type TI="0x0" Family="Function" String="void ()" ReturnTI="0xb" ParamTI="0x0"/>
+      </typelist>
+      <typelist>
+         <type TI="0x1" Family="Function" String="void ()" ReturnTI="0xb" ParamTI="0x0"/>
+      </typelist>
+      <typelist>
+         <type TI="0x2" Family="Function" String="unsigned char ()" ReturnTI="0x3" ParamTI="0x0"/>
+      </typelist>
+      <typelist>
+         <type TI="0x3" Family="Function" String="unsigned char ()" ReturnTI="0x3" ParamTI="0x0"/>
+      </typelist>
+      </module>
+      <module Name="MULTIEEE" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51FPS.LIB)">
+      </module>
+      <module Name="TOOLIEEE" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51FPS.LIB)">
+      </module>
+      <module Name="CONVIEEE" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51FPS.LIB)">
+      </module>
+      <module Name="_C_CBAM" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="C1S" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="MV_XD2RG4" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="DIVS" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="HPD" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="_C_INITD" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+      <module Name="_C_IDATALEN" Origin="LIB(C:\Raisonance\Ride\Lib\51\RC51S.LIB)">
+      </module>
+   </modulelist>
+</aoffile>

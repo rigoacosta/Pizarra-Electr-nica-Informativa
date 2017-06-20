@@ -1,0 +1,5 @@
+;Debugger Configuration for the bank switching mode
+EQUATE(?B_CURRENTBANK)      ;The bank evaluation formula
+START(8000h)                ;Starting address for the banked area
+COMMON                      ;The common area
+   proyecto.AOF

@@ -1,0 +1,173 @@
+MACRO ASSEMBLER I2C                                        05/29/17 10:25:58 PAGE     1
+
+
+DOS MACRO ASSEMBLER MA51 V06.08.10.309
+OBJECT MODULE PLACED IN F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\I2C.OBJ
+ASSEMBLER INVOKED BY: QUIET GENERATEDEPFILE EP SYNTAX(ASM51) PR XR PL(60) PW(80) DB OJ(F:\UNIVERSIDAD\PROYECTO\PA TESIS\INTEGRADO\I2C.OBJ) PIN(C:\RAISONANCE\RIDE\INC;C:\RAISONANCE\RIDE\INC\51) 
+
+LOC     OBJ           LINE    SOURCE
+                         1         $MOD51
+                         2         ?SU?SEND SEGMENT CODE
+                         3         ?SU?RECV SEGMENT CODE
+                         4         ?SU?INIT SEGMENT CODE
+                         5         ?SU?RESET SEGMENT CODE
+                         6         ?SU?STARTT SEGMENT CODE
+                         7         ?SU?STOP SEGMENT CODE
+                         8         ?SU?NAK SEGMENT CODE
+                         9         ?SU?ACK SEGMENT CODE
+                        10     
+                        11         PUBLIC _SEND
+                        12         PUBLIC RECV
+                        13         PUBLIC I2CINIT
+                        14         PUBLIC I2CRESET
+                        15         PUBLIC I2CSTART
+                        16         PUBLIC I2CSTOP
+                        17         PUBLIC NAK
+                        18         PUBLIC ACK
+                        19     
+                        20     
+  0080                  21         SCL	EQU	P0.0		;PIN TX
+  0081                  22         SDA	EQU	P0.1		;PIN RX
+                        23     
+------                  24         RSEG ?SU?SEND
+                        25         _SEND: 
+0000    C0E0            26         	PUSH ACC
+0002    C0D0            27         	PUSH PSW
+0004    EF              28         	MOV A,R7
+0005    7908            29         	MOV R1,#8
+                        30         BACK: 
+0007    C280            31     CLR 128 
+0009    33              32         	RLC A
+000A    9281            33     MOV 129 , C 
+000C    D280            34     SETB 128 
+000E    D9F7            35         	DJNZ R1,BACK
+0010    C280            36     CLR 128 
+0012    D281            37     SETB 129 
+0014    D280            38     SETB 128 
+0016    A281            39     MOV C , 129 
+0018    C280            40     CLR 128 
+001A    D0D0            41         	POP PSW
+001C    D0E0            42         	POP ACC
+001E    22              43         	RET
+                        44     
+------                  45         RSEG ?SU?RECV
+                        46         RECV: 
+0000    C0E0            47         	PUSH ACC
+0002    C0D0            48         	PUSH PSW
+0004    7908            49         	MOV R1,#8
+                        50         BACK2: 
+MACRO ASSEMBLER I2C                              05/29/17  10:25:58 PAGE     2
+                     
+0006    C280            51     CLR 128 
+0008    D280            52     SETB 128 
+000A    A281            53     MOV C , 129 
+000C    33              54         	RLC A
+000D    D9F7            55         	DJNZ R1,BACK2
+000F    C280            56     CLR 128 
+0011    D281            57     SETB 129 
+0013    FF              58         	MOV R7,A
+0014    D0D0            59         	POP PSW
+0016    D0E0            60         	POP ACC
+0018    22              61         	RET
+                        62     
+------                  63         RSEG ?SU?INIT
+                        64         I2CINIT:  
+0000    D281            65     SETB 129 
+0002    D280            66     SETB 128 
+0004    22              67         	RET
+                        68     
+------                  69        	RSEG ?SU?RESET
+                        70        	I2CRESET: 
+0000    C280            71     CLR 128 
+0002    D281            72     SETB 129 
+0004    D280            73     SETB 128 
+0006    C281            74     CLR 129 
+0008    22              75        		RET
+                        76     
+------                  77        	RSEG ?SU?STARTT
+                        78        	I2CSTART: 
+0000    D280            79     SETB 128 
+0002    C281            80     CLR 129 
+0004    C280            81     CLR 128 
+0006    22              82        		RET
+                        83     
+                        84     
+------                  85        	RSEG ?SU?STOP
+                        86        	I2CSTOP: 
+0000    C280            87     CLR 128 
+0002    C281            88     CLR 129 
+0004    D280            89     SETB 128 
+0006    D281            90     SETB 129 
+0008    22              91        		RET
+                        92     
+------                  93        	RSEG ?SU?ACK
+                        94        	ACK:  
+0000    C281            95     CLR 129 
+0002    D280            96     SETB 128 
+0004    C280            97     CLR 128 
+0006    D281            98     SETB 129 
+0008    22              99        		RET
+                       100     
+------                 101        	RSEG ?SU?NAK
+                       102        	NAK: 
+0000    D281           103     SETB 129 
+0002    D280           104     SETB 128 
+0004    C280           105     CLR 128 
+0006    D280           106     SETB 128 
+0008    22             107        		RET
+MACRO ASSEMBLER I2C                              05/29/17  10:25:58 PAGE     3
+                     
+                       108     
+                       109         END
+MACRO ASSEMBLER I2C                                        05/29/17 10:25:58 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+?SU?NAK. . . . . .  C SEG    0009H      REL=UNIT                101# 
+P0 . . . . . . . .  D ADDR   0080H   A                          1# 21 22 
+I2CRESET . . . . .  C ADDR   0000H   R  SEG=?SU?RESET           14 70# 
+SCL. . . . . . . .  B ADDR   0080H.0 A                          21# 31 34 36 38 40 
+                                                                51 52 56 66 71 73 
+                                                                79 81 87 89 96 97 
+                                                                104 105 106 
+BACK2. . . . . . .  C ADDR   0006H   R  SEG=?SU?RECV            50# 55 
+I2CSTOP. . . . . .  C ADDR   0000H   R  SEG=?SU?STOP            16 86# 
+ACC. . . . . . . .  D ADDR   00E0H   A                          1# 26 42 47 60 
+?SU?STARTT . . . .  C SEG    0007H      REL=UNIT                77# 
+_SEND. . . . . . .  C ADDR   0000H   R  SEG=?SU?SEND            11 25# 
+?SU?RESET. . . . .  C SEG    0009H      REL=UNIT                69# 
+I2CSTART . . . . .  C ADDR   0000H   R  SEG=?SU?STARTT          15 78# 
+?SU?STOP . . . . .  C SEG    0009H      REL=UNIT                85# 
+ACK. . . . . . . .  C ADDR   0000H   R  SEG=?SU?ACK             18 94# 
+RECV . . . . . . .  C ADDR   0000H   R  SEG=?SU?RECV            12 46# 
+?SU?SEND . . . . .  C SEG    001FH      REL=UNIT                24# 
+BACK . . . . . . .  C ADDR   0007H   R  SEG=?SU?SEND            30# 35 
+I2CINIT. . . . . .  C ADDR   0000H   R  SEG=?SU?INIT            13 64# 
+?SU?ACK. . . . . .  C SEG    0009H      REL=UNIT                93# 
+?SU?RECV . . . . .  C SEG    0019H      REL=UNIT                45# 
+SDA. . . . . . . .  B ADDR   0080H.1 A                          22# 33 37 39 53 57 
+                                                                65 72 74 80 88 90 
+                                                                95 98 103 
+NAK. . . . . . . .  C ADDR   0000H   R  SEG=?SU?NAK             17 102# 
+?SU?INIT . . . . .  C SEG    0005H      REL=UNIT                63# 
+PSW. . . . . . . .  D ADDR   00D0H   A                          1# 27 41 48 59 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    104    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)
